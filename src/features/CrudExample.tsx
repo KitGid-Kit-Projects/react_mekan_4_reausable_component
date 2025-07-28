@@ -1,33 +1,29 @@
 import React, { useState } from 'react';
-import { Row, Col, message } from 'antd';
-// import { ColumnsType } from 'antd/es/table';
-// import { Button, Card, Input, SelectBox, TextArea, Table } from '../components';
-// import { CrudRecord, SelectOption } from '../types/common';
+import { Card } from 'antd';
+import { Input } from '../components';
 
-/**
- * CRUD Example demonstrating the usage of reusable components
- * This example shows:
- * - Form creation with validation
- * - In-memory data management
- * - Table display with actions
- * - Edit and delete functionality
- */
 const CrudExample: React.FC = () => {
+  // Keep only the name field in form state
+  const [formData, setFormData] = useState({
+    name: '',
+  });
 
+  // Handle name input change
+  const handleInputChange = (field: string) => (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setFormData(prev => ({ ...prev, [field]: e.target.value }));
+  };
 
   return (
-    <div style={{ padding: '24px', maxWidth: '1200px', margin: '0 auto' }}>
-      <Row gutter={[24, 24]}>
-        {/* Form Section */}
-        <Col xs={24} lg={8}>
-       
-        </Col>
-
-        {/* Table Section */}
-        <Col xs={24} lg={16}>
-       
-        </Col>
-      </Row>
+    <div style={{ padding: '24px', maxWidth: '600px', margin: '0 auto' }}>
+        <Input
+          label="Name"
+          placeholder="Enter name"
+          value={formData.name}
+          onChange={handleInputChange('name')}
+          required
+        />
     </div>
   );
 };
