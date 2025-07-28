@@ -5,27 +5,34 @@ import { Button, Card, Input, SelectBox, TextArea, Table } from '../components';
 import { CrudRecord, SelectOption } from '../types/common';
 
 /**
- * CRUD Example demonstrating the usage of reusable components
- * This example shows:
- * - Form creation with validation
+ * CRUD Example Component
+ * 
+ * Demonstrates a complete CRUD (Create, Read, Update, Delete) interface using:
+ * - Reusable form components
  * - In-memory data management
- * - Table display with actions
- * - Edit and delete functionality
+ * - Ant Design layout components
+ * - Table with sorting/filtering capabilities
+ * 
+ * Features:
+ * - Form validation
+ * - Edit state management
+ * - Loading states
+ * - User feedback (success/error messages)
  */
 const CrudExample: React.FC = () => {
-  // Form state
+  // Form state management
   const [formData, setFormData] = useState({
     name: '',
     category: '',
     description: '',
   });
 
-  // Data storage (in-memory)
+  // Data storage (simulating a database)
   const [records, setRecords] = useState<CrudRecord[]>([]);
   const [editingRecord, setEditingRecord] = useState<CrudRecord | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Category options for the select box
+  // Category options for the select dropdown
   const categoryOptions: SelectOption[] = [
     { label: 'Technology', value: 'technology' },
     { label: 'Education', value: 'education' },
@@ -34,17 +41,29 @@ const CrudExample: React.FC = () => {
     { label: 'Entertainment', value: 'entertainment' },
   ];
 
-  // Form handlers
-  const handleInputChange = (field: string) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData(prev => ({ ...prev, [field]: e.target.value }));
-  };
+  /**
+   * Handles input changes for form fields
+   * @param field - The field name to update
+   * @returns Change event handler
+   */
+  const handleInputChange = (field: string) => 
+    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+      setFormData(prev => ({ ...prev, [field]: e.target.value }));
+    };
 
+  /**
+   * Handles select dropdown changes
+   * @param value - The selected value
+   */
   const handleSelectChange = (value: string) => {
     setFormData(prev => ({ ...prev, category: value }));
   };
 
+  /**
+   * Handles form submission for both create and update operations
+   */
   const handleSubmit = async () => {
-    // Basic validation
+    // Validate required fields
     if (!formData.name.trim()) {
       message.error('Name is required');
       return;
@@ -91,6 +110,10 @@ const CrudExample: React.FC = () => {
     }
   };
 
+  /**
+   * Loads a record into the form for editing
+   * @param record - The record to edit
+   */
   const handleEdit = (record: CrudRecord) => {
     setFormData({
       name: record.name,
@@ -101,6 +124,10 @@ const CrudExample: React.FC = () => {
     message.info('Record loaded for editing');
   };
 
+  /**
+   * Deletes a record from the data
+   * @param record - The record to delete
+   */
   const handleDelete = (record: CrudRecord) => {
     setRecords(prev => prev.filter(r => r.id !== record.id));
     message.success('Record deleted successfully!');
@@ -112,46 +139,50 @@ const CrudExample: React.FC = () => {
     }
   };
 
+  /**
+   * Cancels the current edit operation
+   */
   const handleCancelEdit = () => {
     setEditingRecord(null);
     setFormData({ name: '', category: '', description: '' });
     message.info('Edit cancelled');
   };
 
-  // Table column definitions
+  // Table column configuration
   const columns: ColumnsType<CrudRecord> = [
     {
       title: 'Name',
       dataIndex: 'name',
       key: 'name',
-      sorter: (a, b) => a.name.localeCompare(b.name),
+      sorter: (a, b) => a.name.localeCompare(b.name), // Alphabetical sorting
     },
     {
       title: 'Category',
       dataIndex: 'category',
       key: 'category',
       filters: categoryOptions.map(opt => ({ text: opt.label, value: opt.value })),
-      onFilter: (value, record) => record.category === value,
+      onFilter: (value, record) => record.category === value, // Category filtering
     },
     {
       title: 'Description',
       dataIndex: 'description',
       key: 'description',
-      ellipsis: true,
+      ellipsis: true, // Truncate long text
     },
     {
       title: 'Created At',
       dataIndex: 'createdAt',
       key: 'createdAt',
-      render: (date: Date) => date.toLocaleDateString(),
-      sorter: (a, b) => a.createdAt.getTime() - b.createdAt.getTime(),
+      render: (date: Date) => date.toLocaleDateString(), // Format date
+      sorter: (a, b) => a.createdAt.getTime() - b.createdAt.getTime(), // Date sorting
     },
   ];
 
   return (
     <div style={{ padding: '24px', maxWidth: '1200px', margin: '0 auto' }}>
+      {/* Responsive layout using Ant Design Grid */}
       <Row gutter={[24, 24]}>
-        {/* Form Section */}
+        {/* Form Section (left column on desktop) */}
         <Col xs={24} lg={8}>
           <Card
             title={editingRecord ? 'Edit Record' : 'Create New Record'}
@@ -174,6 +205,7 @@ const CrudExample: React.FC = () => {
             }
           >
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              {/* Name Input Field */}
               <Input
                 label="Name"
                 placeholder="Enter name"
@@ -182,6 +214,7 @@ const CrudExample: React.FC = () => {
                 required
               />
               
+              {/* Category Select Dropdown */}
               <SelectBox
                 label="Category"
                 options={categoryOptions}
@@ -191,6 +224,7 @@ const CrudExample: React.FC = () => {
                 required
               />
               
+              {/* Description Text Area */}
               <TextArea
                 label="Description"
                 placeholder="Enter description"
@@ -204,7 +238,7 @@ const CrudExample: React.FC = () => {
           </Card>
         </Col>
 
-        {/* Table Section */}
+        {/* Table Section (right column on desktop) */}
         <Col xs={24} lg={16}>
           <Card title="Records" style={{ height: 'fit-content' }}>
             <Table
@@ -215,6 +249,7 @@ const CrudExample: React.FC = () => {
               pagination={records.length > 10}
               size="middle"
             />
+            {/* Empty state message */}
             {records.length === 0 && (
               <div style={{ textAlign: 'center', padding: '40px', color: '#999' }}>
                 No records found. Create your first record using the form.

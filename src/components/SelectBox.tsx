@@ -2,56 +2,86 @@ import React from 'react';
 import { Select } from 'antd';
 import { BaseComponentProps, SelectOption } from '../types/common';
 
-// Using interface for component props
+// Interface defining all props for the SelectBox component
 interface SelectBoxProps extends BaseComponentProps {
-  label: string;
-  options: SelectOption[];
-  value: string;
-  onChange: (value: string) => void;
-  placeholder?: string;
-  required?: boolean;
-  disabled?: boolean;
-  allowClear?: boolean;
+  label: string;         // Text label displayed above the select box
+  options: SelectOption[]; // Array of selectable options (must have label/value)
+  value: string;         // Currently selected value (controlled component)
+  onChange: (value: string) => void; // Callback when selection changes
+  placeholder?: string;  // Placeholder text when no option is selected
+  required?: boolean;    // Whether to show required field indicator
+  disabled?: boolean;    // Whether the select is interactive
+  allowClear?: boolean;  // Whether to show clear selection button
 }
 
 /**
- * Reusable SelectBox component built on top of Ant Design
+ * Enhanced Select Dropdown Component
  * 
- * @param label - Select field label
- * @param options - Array of select options
- * @param value - Controlled select value
- * @param onChange - Change handler function
- * @param placeholder - Placeholder text
- * @param required - Shows required indicator
- * @param disabled - Disables the select
- * @param allowClear - Shows clear button
+ * A reusable select input built on Ant Design's Select component with:
+ * - Custom label support
+ * - Required field indication
+ * - Type-safe options
+ * - Full control over selection state
+ * 
+ * @param props - Configuration options for the select box
  */
 const SelectBox: React.FC<SelectBoxProps> = ({
-  label,
-  options,
-  value,
-  onChange,
-  placeholder = 'Please select...',
-  required = false,
-  disabled = false,
-  allowClear = true,
-  className,
-  style,
+  label,          // The text label shown above the select
+  options,        // Array of {label, value} objects for dropdown
+  value,          // Currently selected value (controlled)
+  onChange,       // Handler when selection changes (receives new value)
+  placeholder = 'Please select...', // Default placeholder text
+  required = false, // Default to not show required indicator
+  disabled = false, // Default to enabled state
+  allowClear = true, // Default to showing clear button
+  className,      // Optional CSS class for the container
+  style,          // Optional inline styles for the container
 }) => {
   return (
+    // Container div for the select component
     <div className={className} style={style}>
-      <label style={{ display: 'block', marginBottom: 8, fontWeight: 500 }}>
+      {/* Label with optional required indicator */}
+      <label style={{ 
+        display: 'block', 
+        marginBottom: 8, 
+        fontWeight: 500 
+      }}>
         {label}
-        {required && <span style={{ color: '#ff4d4f', marginLeft: 4 }}>*</span>}
+        {/* Red asterisk for required fields */}
+        {required && (
+          <span style={{ color: '#ff4d4f', marginLeft: 4 }}>*</span>
+        )}
       </label>
+      
+      {/* Ant Design Select component with all configured props */}
       <Select
+        // Current selected value (undefined clears the selection)
         value={value || undefined}
+        
+        // Handler called when selection changes
+        // Receives the new value string
         onChange={onChange}
+        
+        // Placeholder text when nothing is selected
         placeholder={placeholder}
+        
+        // Disables interaction when true
         disabled={disabled}
+        
+        // Shows X button to clear selection when true
         allowClear={allowClear}
+        
+        // Ensures select fills its container
         style={{ width: '100%' }}
+        
+        // The selectable options
+        // Each option must have label (display text) and value
         options={options}
+        
+        // Additional Ant Design Select props could be added here:
+        // showSearch - enables search filtering
+        // mode - for multiple selection
+        // etc.
       />
     </div>
   );
