@@ -1,16 +1,10 @@
 import React, { useState } from 'react';
 import { Row, Col, message } from 'antd';
-import { ColumnsType } from 'antd/es/table';
-import { Button, Card, Input, SelectBox, TextArea, Table } from '../components';
+import { Button, Card, Input, SelectBox, TextArea } from '../components';
 import { CrudRecord, SelectOption } from '../types/common';
 
 /**
- * CRUD Example demonstrating the usage of reusable components
- * This example shows:
- * - Form creation with validation
- * - In-memory data management
- * - Table display with actions
- * - Edit and delete functionality
+ * CRUD Example demonstrating reusable input components without table
  */
 const CrudExample: React.FC = () => {
   // Form state
@@ -44,7 +38,6 @@ const CrudExample: React.FC = () => {
   };
 
   const handleSubmit = async () => {
-    // Basic validation
     if (!formData.name.trim()) {
       message.error('Name is required');
       return;
@@ -55,24 +48,18 @@ const CrudExample: React.FC = () => {
     }
 
     setIsSubmitting(true);
-
     try {
-      // Simulate API call delay
       await new Promise(resolve => setTimeout(resolve, 500));
 
       if (editingRecord) {
-        // Update existing record
         setRecords(prev =>
           prev.map(record =>
-            record.id === editingRecord.id
-              ? { ...record, ...formData }
-              : record
+            record.id === editingRecord.id ? { ...record, ...formData } : record
           )
         );
         message.success('Record updated successfully!');
         setEditingRecord(null);
       } else {
-        // Create new record
         const newRecord: CrudRecord = {
           id: Date.now().toString(),
           ...formData,
@@ -82,7 +69,6 @@ const CrudExample: React.FC = () => {
         message.success('Record created successfully!');
       }
 
-      // Reset form
       setFormData({ name: '', category: '', description: '' });
     } catch (error) {
       message.error('An error occurred. Please try again.');
@@ -91,62 +77,11 @@ const CrudExample: React.FC = () => {
     }
   };
 
-  const handleEdit = (record: CrudRecord) => {
-    setFormData({
-      name: record.name,
-      category: record.category,
-      description: record.description,
-    });
-    setEditingRecord(record);
-    message.info('Record loaded for editing');
-  };
-
-  const handleDelete = (record: CrudRecord) => {
-    setRecords(prev => prev.filter(r => r.id !== record.id));
-    message.success('Record deleted successfully!');
-    
-    // Clear edit state if deleting the record being edited
-    if (editingRecord?.id === record.id) {
-      setEditingRecord(null);
-      setFormData({ name: '', category: '', description: '' });
-    }
-  };
-
   const handleCancelEdit = () => {
     setEditingRecord(null);
     setFormData({ name: '', category: '', description: '' });
     message.info('Edit cancelled');
   };
-
-  // Table column definitions
-  const columns: ColumnsType<CrudRecord> = [
-    {
-      title: 'Name',
-      dataIndex: 'name',
-      key: 'name',
-      sorter: (a, b) => a.name.localeCompare(b.name),
-    },
-    {
-      title: 'Category',
-      dataIndex: 'category',
-      key: 'category',
-      filters: categoryOptions.map(opt => ({ text: opt.label, value: opt.value })),
-      onFilter: (value, record) => record.category === value,
-    },
-    {
-      title: 'Description',
-      dataIndex: 'description',
-      key: 'description',
-      ellipsis: true,
-    },
-    {
-      title: 'Created At',
-      dataIndex: 'createdAt',
-      key: 'createdAt',
-      render: (date: Date) => date.toLocaleDateString(),
-      sorter: (a, b) => a.createdAt.getTime() - b.createdAt.getTime(),
-    },
-  ];
 
   return (
     <div style={{ padding: '24px', maxWidth: '1200px', margin: '0 auto' }}>
@@ -181,7 +116,7 @@ const CrudExample: React.FC = () => {
                 onChange={handleInputChange('name')}
                 required
               />
-              
+
               <SelectBox
                 label="Category"
                 options={categoryOptions}
@@ -190,7 +125,7 @@ const CrudExample: React.FC = () => {
                 placeholder="Select a category"
                 required
               />
-              
+
               <TextArea
                 label="Description"
                 placeholder="Enter description"
@@ -201,25 +136,6 @@ const CrudExample: React.FC = () => {
                 showCount
               />
             </div>
-          </Card>
-        </Col>
-
-        {/* Table Section */}
-        <Col xs={24} lg={16}>
-          <Card title="Records" style={{ height: 'fit-content' }}>
-            <Table
-              columns={columns}
-              data={records}
-              onEdit={handleEdit}
-              onDelete={handleDelete}
-              pagination={records.length > 10}
-              size="middle"
-            />
-            {records.length === 0 && (
-              <div style={{ textAlign: 'center', padding: '40px', color: '#999' }}>
-                No records found. Create your first record using the form.
-              </div>
-            )}
           </Card>
         </Col>
       </Row>
