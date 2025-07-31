@@ -2,35 +2,15 @@ import React, { useState } from 'react';
 import { Card } from 'antd';
 import { Input, SelectBox, TextArea } from '../components';
 import { SelectOption } from '../types/common';
+import useCrudExample from '@/hooks/crudExample/useCrudExample';
 
 const CrudExample: React.FC = () => {
-  // Only the form state
-  const [formData, setFormData] = useState({
-    name: '',
-    category: '',
-    description: '',
-  });
-
-  // Category options
-  const categoryOptions: SelectOption[] = [
-    { label: 'Technology', value: 'technology' },
-    { label: 'Education', value: 'education' },
-    { label: 'Health', value: 'health' },
-    { label: 'Finance', value: 'finance' },
-    { label: 'Entertainment', value: 'entertainment' },
-  ];
-
-  // Generic change handler
-  const handleInputChange = (field: string) => (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    setFormData(prev => ({ ...prev, [field]: e.target.value }));
-  };
-
-  const handleSelectChange = (value: string) => {
-    setFormData(prev => ({ ...prev, category: value }));
-  };
-
+const {
+  formData,
+  categoryOptions,
+  handleInputChange,
+  handleSelectChange
+}=useCrudExample()
   return (
     <div style={{ padding: '24px', maxWidth: '600px', margin: '0 auto' }}>
       <Card title="Simple Form">
