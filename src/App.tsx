@@ -1,7 +1,7 @@
 import React from 'react';
 import { ConfigProvider } from 'antd';
 import 'antd/dist/reset.css'; // Import Ant Design styles
-import CrudExample from './features/CrudExample';
+import CrudExample from './pages/CrudExample';
 
 /**
  * Main App component
