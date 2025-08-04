@@ -6,8 +6,11 @@ App                                    // 📦 File: ./App.tsx
 
               └── useCrudExample  // Hook: useCrudExample
 
-                      └──  common   // Hook: useCrudExample.common
-      
+                      └──  hooks   // 
+                
+                              └── crudExample
+                                
+                                        └── useCrudExample
 
            
 
