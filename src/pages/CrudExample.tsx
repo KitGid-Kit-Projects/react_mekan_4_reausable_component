@@ -4,6 +4,8 @@ import { ColumnsType } from 'antd/es/table';
 import { Button, Card, Input, SelectBox, TextArea, Table } from '../components';
 import { CrudRecord, SelectOption } from '../types/common';
 import useCrudExample from '@/hooks/crudExample/useCrudExample';
+import CreateUpdateCrudExample from '@/components/crud-example/CreateUpdateCrudExample';
+import TabelCrudExample from '@/components/crud-example/TabelCrudExample';
 
 /**
  * CRUD Example Component
@@ -43,78 +45,26 @@ const {
       <Row gutter={[24, 24]}>
         {/* Form Section (left column on desktop) */}
         <Col xs={24} lg={8}>
-          <Card
-            title={editingRecord ? 'Edit Record' : 'Create New Record'}
-            footer={
-              <div style={{ display: 'flex', gap: '8px', justifyContent: 'flex-end' }}>
-                {editingRecord && (
-                  <Button
-                    text="Cancel"
-                    onClick={handleCancelEdit}
-                    variant="secondary"
-                  />
-                )}
-                <Button
-                  text={editingRecord ? 'Update' : 'Create'}
-                  onClick={handleSubmit}
-                  variant="primary"
-                  loading={isSubmitting}
-                />
-              </div>
-            }
-          >
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-              {/* Name Input Field */}
-              <Input
-                label="Name"
-                placeholder="Enter name"
-                value={formData.name}
-                onChange={handleInputChange('name')}
-                required
-              />
-              
-              {/* Category Select Dropdown */}
-              <SelectBox
-                label="Category"
-                options={categoryOptions}
-                value={formData.category}
-                onChange={handleSelectChange}
-                placeholder="Select a category"
-                required
-              />
-              
-              {/* Description Text Area */}
-              <TextArea
-                label="Description"
-                placeholder="Enter description"
-                value={formData.description}
-                onChange={handleInputChange('description')}
-                rows={4}
-                maxLength={500}
-                showCount
-              />
-            </div>
-          </Card>
+          <CreateUpdateCrudExample
+           formData={formData}
+           categoryOptions={categoryOptions}
+           handleInputChange={handleInputChange}
+           handleSelectChange={handleSelectChange}
+           handleSubmit={handleSubmit}
+           handleCancelEdit={handleCancelEdit}
+           isSubmitting={isSubmitting}
+           editingRecord={editingRecord}
+          />
         </Col>
 
         {/* Table Section (right column on desktop) */}
         <Col xs={24} lg={16}>
-          <Card title="Records" style={{ height: 'fit-content' }}>
-            <Table
+          <TabelCrudExample 
               columns={columns}
-              data={records}
-              onEdit={handleEdit}
-              onDelete={handleDelete}
-              pagination={records.length > 10}
-              size="middle"
-            />
-            {/* Empty state message */}
-            {records.length === 0 && (
-              <div style={{ textAlign: 'center', padding: '40px', color: '#999' }}>
-                No records found. Create your first record using the form.
-              </div>
-            )}
-          </Card>
+              records={records}
+              handleEdit={handleEdit}
+              handleDelete={handleDelete}
+          />
         </Col>
       </Row>
     </div>
