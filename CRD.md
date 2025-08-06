@@ -1,4 +1,3 @@
-App
 └── [ConfigProvider] (📦 'antd')
     └── div (📦 native HTML container)
         ├── header (📦 native HTML)
