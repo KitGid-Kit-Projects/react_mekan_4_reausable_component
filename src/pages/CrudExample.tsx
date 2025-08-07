@@ -1,7 +1,4 @@
 import React, { useState } from 'react';
-import { Card } from 'antd';
-import { Input, SelectBox, TextArea } from '../components';
-import { SelectOption } from '../types/common';
 import useCrudExample from '@/hooks/crudExample/useCrudExample';
 import CreateUpdateCrudExample from '@/components/crud-example/CreateUpdateCrudExample';
 
