@@ -20,7 +20,7 @@ const CrudExample: React.FC = () => {
       <Row gutter={[24, 24]}>
         {/* Form Section */}
         <Col xs={24} lg={8}>
-       
+ 
         </Col>
 
         {/* Table Section */}
