@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Row, Col, message } from 'antd';
-import { Button, Card, Input, SelectBox, TextArea } from '../components';
+import { Row, Col } from 'antd';
 import useCrudExample from '@/hooks/crudExample/useCrudExample';
 import CreateUpdateCrudExample from '@/components/crud-example/CreateUpdateCrudExample';
 
@@ -12,13 +11,8 @@ const CrudExample: React.FC = () => {
   // Form state
  const {
   formData,
-  setFormData,
-  records,
-  setRecords,
   editingRecord,
-  setEditingRecord,
   isSubmitting,
-  setIsSubmitting,
   categoryOptions,
   handleInputChange,
   handleSelectChange,
