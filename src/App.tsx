@@ -24,7 +24,6 @@ const App: React.FC = () => {
     >
       {/* Main container with minimum height to fill the screen and a light gray background */}
       <div style={{ minHeight: '100vh', backgroundColor: '#f5f5f5' }}>
-        
         {/* Header section of the page with white background, padding, and a subtle shadow */}
         <header style={{ 
           background: '#fff', 
