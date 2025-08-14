@@ -6,7 +6,7 @@ import { ConfigProvider } from 'antd';
 
 // Import Ant Design's reset CSS to ensure consistent styling across browsers
 import 'antd/dist/reset.css';
-import ComponentChanges from './pages/ComponentChanges';
+import ComponentChanges from './components/ComponentChanges';
 
 
 // Define the main App component using TypeScript's React.FC (Function Component) type
