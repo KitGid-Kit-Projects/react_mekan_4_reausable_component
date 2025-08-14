@@ -13,7 +13,7 @@ import { Row, Col, message } from 'antd';
  * - Table display with actions
  * - Edit and delete functionality
  */
-const CrudExample: React.FC = () => {
+const ComponentChanges: React.FC = () => {
 
 
   return (
@@ -33,4 +33,4 @@ const CrudExample: React.FC = () => {
   );
 };
 
-export default CrudExample;
+export default ComponentChanges;

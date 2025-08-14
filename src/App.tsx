@@ -6,7 +6,8 @@ import { ConfigProvider } from 'antd';
 
 // Import Ant Design's reset CSS to ensure consistent styling across browsers
 import 'antd/dist/reset.css';
-import CrudExample from './page/CrudExample';
+import ComponentChanges from './pages/ComponentChanges';
+
 
 // Define the main App component using TypeScript's React.FC (Function Component) type
 const App: React.FC = () => {
@@ -46,7 +47,7 @@ const App: React.FC = () => {
 
         {/* Additional content/components will go here in the future */}
         <main>
-          <CrudExample/>
+          <ComponentChanges/>
         </main>
       </div>
     </ConfigProvider>
