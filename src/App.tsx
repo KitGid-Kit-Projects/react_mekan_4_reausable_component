@@ -44,8 +44,7 @@ const App: React.FC = () => {
         </header>
 
         {/* Additional content/components will go here in the future */}
-        <main>
-        </main>
+        
       </div>
     </ConfigProvider>
   );
