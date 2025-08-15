@@ -43,7 +43,7 @@ const App: React.FC = () => {
           </p>
         </header>
 
-        {/* Additional content/components will go here in the future */}
+     
         
       </div>
     </ConfigProvider>
