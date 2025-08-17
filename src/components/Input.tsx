@@ -3,7 +3,7 @@ import React from 'react';
 // Import Ant Design's Input component; aliased as AntInput to avoid name clashes
 import { Input as AntInput } from 'antd';
 // Import a shared base props interface (e.g., className, style) from your types
-import type { BaseComponentProps } from "../types/common.ts";
+import type { BaseComponentProps } from "../types/BaseComponentProps.ts";
 
 // Define the props interface for this reusable Input component
 // It extends BaseComponentProps so consumers can pass className/style
