@@ -1,9 +1,9 @@
 // Import React to enable JSX syntax and React types
 import React from 'react';
 // Import a reusable Input component (your own wrapper/component library)
-import  Input  from "../components/Input";
+import  Input  from "../components/Input.tsx";
 // Import the custom hook that manages form state for this example
-import useCrudExample from '../hooks/crudExample/useCrudExample';
+import useCrudExample from '../hooks/crudExample/useCrudExample.tsx';
 
 // Declare the CrudExample component using React.FC (function component)
 const CrudExample: React.FC = () => {
