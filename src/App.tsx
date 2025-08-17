@@ -47,7 +47,7 @@ const App: React.FC = () => {
 
         {/* Additional content/components will go here in the future */}
         <main>
-          <CrudExample/>
+          
         </main>
       </div>
     </ConfigProvider>
