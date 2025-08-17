@@ -1,7 +1,7 @@
 App (📦 './App.tsx')
     └── [ConfigProvider] (# 'antd')
        └── CrudExample (# 'src/pages/CrudExample')
-           ├── Input (# 'src/components/index.ts)
+           ├── Input (# 'src/components/Input.tsx)
            │   └── BaseComponentProps (# src/types/common.ts)
            └── useCrudExample (# src/hooks/crudExample/useCrudExample.tsx)
                ├── [useState] (# 'react')
