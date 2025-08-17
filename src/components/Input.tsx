@@ -1,70 +1,61 @@
+// Import React to enable JSX usage and React types
 import React from 'react';
+// Import Ant Design's Input component; aliased as AntInput to avoid name clashes
 import { Input as AntInput } from 'antd';
+// Import a shared base props interface (e.g., className, style) from your types
 import { BaseComponentProps } from '../types/common';
 
-// Define the props interface for the Input component
-// Extends BaseComponentProps which includes className and style
+// Define the props interface for this reusable Input component
+// It extends BaseComponentProps so consumers can pass className/style
 interface InputProps extends BaseComponentProps {
-  label: string;               // Text label for the input field (required)
-  placeholder?: string;        // Placeholder text (optional)
-  value: string;               // Current value of the input (controlled component)
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void; // Change handler
-  required?: boolean;          // Whether to show required indicator (default: false)
-  disabled?: boolean;          // Whether the input is disabled (default: false)
-  type?: 'text' | 'email' | 'password' | 'number'; // HTML input type (default: 'text')
+  label: string; // Visible label text shown above the input (required)
+  placeholder?: string; // Hint shown when the input is empty (optional)
+  value: string; // Controlled value for the input field
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void; // Change handler for controlled updates
+  required?: boolean; // If true, show required indicator next to the label
+  disabled?: boolean; // If true, the input is non-interactive
+  type?: 'text' | 'email' | 'password' | 'number'; // HTML input type, defaults to 'text'
 }
 
 /**
- * Reusable Input component built on top of Ant Design
- * 
- * Features:
- * - Customizable label with required indicator
- * - Controlled component pattern
- * - Type-safe props with TypeScript
- * - Extensible styling through className and style props
- * 
- * @param label - Input field label (display text above the input)
- * @param placeholder - Hint text shown when input is empty
- * @param value - Current value of the input (controlled component)
- * @param onChange - Callback when input value changes
- * @param required - Shows red asterisk if true
- * @param disabled - Makes input non-interactive if true
- * @param type - Determines input type (text/email/password/number)
- * @param className - Optional CSS class for styling
- * @param style - Optional inline styles
+ * Reusable Input component built atop Ant Design's Input.
+ * Implements the controlled component pattern with type-safe props.
+ * Accepts className/style via BaseComponentProps for easy styling overrides.
  */
 const Input: React.FC<InputProps> = ({
-  label,
-  placeholder,
-  value,
-  onChange,
-  required = false,    // Default value if not provided
-  disabled = false,    // Default value if not provided
-  type = 'text',       // Default value if not provided
-  className,
-  style,
+  label,            // Human-readable field name displayed above the control
+  placeholder,      // Placeholder text inside the input
+  value,            // Current controlled value
+  onChange,         // Callback for input change events
+  required = false, // Default false: field not required unless specified
+  disabled = false, // Default false: field enabled by default
+  type = 'text',    // Default input type is "text"
+  className,        // Optional CSS class applied to the wrapper div
+  style,            // Optional inline styles applied to the wrapper div
 }) => {
   return (
-    // Container div that accepts custom className and style
+    // Wrapper container allows margin, layout, and custom styles
     <div className={className} style={style}>
-      {/* Label with required indicator */}
+      {/* Top label describing the input. Using block display for full-width line. */}
       <label style={{ display: 'block', marginBottom: 8, fontWeight: 500 }}>
         {label}
-        {/* Show red asterisk if required */}
+        {/* If the field is required, display a red asterisk for visual indication */}
         {required && <span style={{ color: '#ff4d4f', marginLeft: 4 }}>*</span>}
       </label>
-      
-      {/* Ant Design Input component */}
+
+      {/* Ant Design input control using the controlled component pattern */}
       <AntInput
-        placeholder={placeholder}  // Placeholder text
-        value={value}              // Controlled value
-        onChange={onChange}        // Change handler
-        disabled={disabled}       // Disabled state
-        type={type}               // Input type
-        // Note: AntInput automatically handles accessibility attributes
+        placeholder={placeholder} // Visual hint inside the input when empty
+        value={value}             // Controlled value bound to parent state
+        onChange={onChange}       // Propagate changes to parent via callback
+        disabled={disabled}       // Disable interaction when true
+        type={type}               // Input type (text/email/password/number)
+        // Note: AntInput sets appropriate accessibility attributes internally.
+        // If needed, pass `id` and match it with label's htmlFor for explicit association.
       />
     </div>
   );
 };
 
+// Export as default so consumers can import without braces
 export default Input;
