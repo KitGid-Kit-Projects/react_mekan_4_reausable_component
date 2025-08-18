@@ -1,40 +1,69 @@
-App (📦 './App.tsx')
-└── [ConfigProvider] (📦 'antd')
-    └── div (📦 native HTML container)
-        ├── header (📦 native HTML)
-        │   ├── h1 (📦 native HTML)
-        │   └── p (📦 native HTML)
-        └── main (📦 native HTML)
-            └── CrudExample (📦 './pages/CrudExample.tsx')
-                ├── Uses Hook: useCrudExample (📦 '@/hooks/crudExample/useCrudExample.ts')
-                │   ├── formData (object) — holds current form field values
-                │   ├── setFormData (function) — setter for form data
-                │   ├── records (array) — list of saved records
-                │   ├── setRecords (function) — setter for records
-                │   ├── editingRecord (object|null) — currently edited record
-                │   ├── setEditingRecord (function)
-                │   ├── isSubmitting (boolean) — loading state during submit
-                │   ├── setIsSubmitting (function)
-                │   ├── categoryOptions (array) — select dropdown options
-                │   ├── handleInputChange(field) (function) — input/textarea change handler
-                │   ├── handleSelectChange (function) — select dropdown change handler
-                │   ├── handleSubmit (function) — submit/create or update handler
-                │   └── handleCancelEdit (function) — cancels editing mode
-                └── CreateUpdateCrudExample (📦 '@/components/crud-example/CreateUpdateCrudExample.tsx')
-                    ├── [Card] (📦 'antd')
-                    ├── Button (📦 '../components/Button.tsx')
-                    ├── Input (📦 '../components/Input.tsx')
-                    │   └── [input] (📦 native HTML)
-                    ├── SelectBox (📦 '../components/SelectBox.tsx')
-                    │   └── [select] (📦 native HTML)
-                    └── TextArea (📦 '../components/TextArea.tsx')
-                        └── [textarea] (📦 native HTML)
-                    ├── Props passed:
-                    │   ├── formData
-                    │   ├── categoryOptions
-                    │   ├── handleInputChange
-                    │   ├── handleSelectChange
-                    │   ├── handleSubmit
-                    │   ├── handleCancelEdit
-                    │   ├── isSubmitting
-                    │   └── editingRecord
+# Component Relation Diagram (CRD)
+
+**React App Structure - Starting from App.tsx**
+
+```
+App.tsx (# './src/App.tsx')
+├── [React] (# 'react')
+├── [ConfigProvider] (# 'antd')
+│   └── CrudExample (# './src/pages/CrudExample.tsx')
+│       ├── [React] (# 'react')
+│       ├── [Row] (# 'antd')
+│       ├── [Col] (# 'antd')
+│       ├── useCrudExample (# './src/hooks/crudExample/useCrudExample.tsx')
+│       │   ├── [useState] (# 'react')
+│       │   ├── [useCallback] (# 'react')
+│       │   ├── SelectOption (# './src/types/common.ts')
+│       │   └── FormData (# './src/types/common.ts')
+│       └── CreateUpdateCrudExample (# './src/components/crud-example/CreateUpdateCrudExample.tsx')
+│           ├── [React] (# 'react')
+│           ├── [Card] (# 'antd')
+│           ├── [Space] (# 'antd')
+│           ├── [Typography] (# 'antd')
+│           ├── [Button] (# 'antd')
+│           ├── Input (# './src/components/Input.tsx')
+│           │   ├── [React] (# 'react')
+│           │   ├── BaseComponentProps (# './src/types/common.ts')
+│           │   └── [input] (# native HTML element)
+│           ├── SelectBox (# './src/components/SelectBox.tsx')
+│           │   ├── [React] (# 'react')
+│           │   ├── BaseComponentProps (# './src/types/common.ts')
+│           │   ├── SelectOption (# './src/types/common.ts')
+│           │   └── [select] (# native HTML element)
+│           └── TextArea (# './src/components/TextArea.tsx')
+│               ├── [React] (# 'react')
+│               ├── BaseComponentProps (# './src/types/common.ts')
+│               └── [textarea] (# native HTML element)
+```
+
+## Type Definitions
+
+```
+types/common.ts (# './src/types/common.ts')
+├── BaseComponentProps (# interface)
+├── SelectOption (# interface)
+├── TableAction (# interface)
+├── CrudRecord (# interface)
+├── ButtonVariant (# type)
+├── ComponentChildren (# type)
+└── FormData (# type)
+```
+
+## Component Exports
+
+```
+components/index.ts (# './src/components/index.ts')
+├── Input (# './src/components/Input.tsx')
+├── Card (# './src/components/Card.tsx')
+├── Button (# './src/components/Button.tsx')
+├── SelectBox (# './src/components/SelectBox.tsx')
+└── TextArea (# './src/components/TextArea.tsx')
+```
+
+## Legend
+
+- `└──` ➝ Nested JSX usage
+- `└──⧉` ➝ Modal/Popup triggered
+- `└──≫` ➝ Redirect/Navigation
+- `[ComponentName]` = Library components
+- `ComponentName` =
