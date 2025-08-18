@@ -1,8 +1,5 @@
 # Component Relation Diagram (CRD)
 
-**React App Structure - Starting from App.tsx**
-
-```
 App.tsx (# './src/App.tsx')
 ├── [ConfigProvider] (# 'antd')
 │           └── CrudExample (# './src/pages/CrudExample.tsx')
