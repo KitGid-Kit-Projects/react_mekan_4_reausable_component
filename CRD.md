@@ -1,36 +1,32 @@
 # Component Relation Diagram (CRD)
 
-**React App Structure - Starting from App.tsx**
-
-```
 App.tsx (# './src/App.tsx')
-├── [React] (# 'react')
 ├── [ConfigProvider] (# 'antd')
-│   └── CrudExample (# './src/pages/CrudExample.tsx')
-│       ├── [React] (# 'react')
-│       ├── [useState] (# 'react')
-│       ├── useCrudExample (# './src/hooks/crudExample/useCrudExample.tsx')
-│       │   ├── [useState] (# 'react')
-│       │   ├── SelectOption (# './src/types/common.ts')
-│       │   └── FormData (# './src/types/common.ts')
-│       └── CreateUpdateCrudExample (# './src/components/crud-example/CreateUpdateCrudExample.tsx')
-│           ├── [React] (# 'react')
-│           └── [Card] (# 'antd')
-│               └── div (# native HTML container)
-│                   ├── Input (# './src/components/Input.tsx')
-│                   │   ├── [React] (# 'react')
-│                   │   ├── BaseComponentProps (# './src/types/common.ts')
-│                   │   └── [input] (# native HTML element)
-│                   ├── SelectBox (# './src/components/SelectBox.tsx')
-│                   │   ├── [React] (# 'react')
-│                   │   ├── BaseComponentProps (# './src/types/common.ts')
-│                   │   ├── SelectOption (# './src/types/common.ts')
-│                   │   └── [select] (# native HTML element)
-│                   └── TextArea (# './src/components/TextArea.tsx')
-│                       ├── [React] (# 'react')
-│                       ├── BaseComponentProps (# './src/types/common.ts')
-│                       └── [textarea] (# native HTML element)
-```
+           └── CrudExample (# './src/pages/CrudExample.tsx')
+               ├── [useState] (# 'react')
+               ├── [Row] (# 'antd')
+               │   └── [Col] (# 'antd')
+               │       └── CreateUpdateCrudExample (# './src/components/crud-example/CreateUpdateCrudExample.tsx')
+               │            ├── Card (# './src/components/Card.tsx')
+               │                ├── BaseComponentProps (# './src/types/common.ts')
+               │                ├── ComponentChildren (# './src/types/common.ts')
+               │                   ├── Input {Name} (# './src/components/Input.tsx')
+               │                   │   ├── BaseComponentProps (# './src/types/common.ts')
+               │                   ├── SelectBox {Category} (# './src/components/SelectBox.tsx')
+               │                   │   ├── BaseComponentProps (# './src/types/common.ts')
+               │                   │   ├── SelectOption (# './src/types/common.ts')
+               │                   └── TextArea {Description} (# './src/components/TextArea.tsx')
+               │                       ├── BaseComponentProps (# './src/types/common.ts')
+               └── useCrudExample (# './src/hooks/crudExample/useCrudExample.tsx')
+                   ├── [useState] (# 'react')
+                   ├── [useCallback] (# 'react')
+                   ├── SelectOption (# './src/types/common.ts')
+                   ├── CrudRecord (# './src/types/common.ts')
+                   └── FormData (# './src/types/common.ts')
+
+
+
+
 
 ## Type Definitions
 
@@ -50,8 +46,11 @@ types/common.ts (# './src/types/common.ts')
 ```
 components/index.ts (# './src/components/index.ts')
 ├── Input (# './src/components/Input.tsx')
+├── Card (# './src/components/Card.tsx')
+├── Button (# './src/components/Button.tsx')
 ├── SelectBox (# './src/components/SelectBox.tsx')
-└── TextArea (# './src/components/TextArea.tsx')
+├── TextArea (# './src/components/TextArea.tsx')
+└── Table (# './src/components/Table.tsx')
 ```
 
 ## Legend
@@ -61,3 +60,4 @@ components/index.ts (# './src/components/index.ts')
 - `└──≫` ➝ Redirect/Navigation
 - `[ComponentName]` = Library components
 - `ComponentName` = Developer components
+- `{Description}` = UI element purpose/content
