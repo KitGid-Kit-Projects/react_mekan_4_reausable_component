@@ -1,6 +1,6 @@
 import React from 'react';
 import { Input as AntInput } from 'antd';
-import { BaseComponentProps } from '../types/common';
+import { BaseComponentProps } from '../../types/common';
 
 // Define the props interface for the Input component
 // Extends BaseComponentProps which includes className and style

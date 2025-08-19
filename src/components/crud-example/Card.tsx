@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card as AntCard } from 'antd';
-import { BaseComponentProps, ComponentChildren } from '../types/common';
+import { BaseComponentProps, ComponentChildren } from '../../types/common';
 
 /**
  * Interface defining the props for the Card component

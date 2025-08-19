@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button as AntButton } from 'antd';
-import { BaseComponentProps, ButtonVariant } from '../types/common';
+import { BaseComponentProps, ButtonVariant } from '../../types/common';
 
 /**
  * Interface defining the Button component's props
