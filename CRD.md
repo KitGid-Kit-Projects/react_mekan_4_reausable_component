@@ -23,21 +23,6 @@ App.tsx (# './src/App.tsx')
 
 
 
-
-
-## Type Definitions
-
-```
-types/common.ts (# './src/types/common.ts')
-├── BaseComponentProps (# interface)
-├── SelectOption (# interface)
-├── TableAction (# interface)
-├── CrudRecord (# interface)
-├── ButtonVariant (# type)
-├── ComponentChildren (# type)
-└── FormData (# type)
-```
-
 ## Component Exports
 
 ```
