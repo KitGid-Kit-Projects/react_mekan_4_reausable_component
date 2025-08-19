@@ -1,5 +1,5 @@
-import { SelectOption } from "@/components";
 import { useState } from "react";
+import type { SelectOption } from "../../types/SelectOption";
 
 export default function useCrudExample() {
       // Only the form state

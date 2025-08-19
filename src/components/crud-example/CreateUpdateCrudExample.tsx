@@ -1,8 +1,7 @@
 import { Card } from 'antd'
-import React from 'react'
-import SelectBox from '../SelectBox'
-import TextArea from '../TextArea'
-import Input from '../Input'
+import SelectBox from './SelectBox'
+import Input from './Input'
+import TextArea from './TextArea'
 
 export default function CreateUpdateCrudExample({
     formData,

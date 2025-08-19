@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import useCrudExample from '@/hooks/crudExample/useCrudExample';
-import CreateUpdateCrudExample from '@/components/crud-example/CreateUpdateCrudExample';
+import React from 'react';
+import CreateUpdateCrudExample from '../components/crud-example/CreateUpdateCrudExample.tsx';
+import useCrudExample from '../hooks/crudExample/useCrudExample';
 
 const CrudExample: React.FC = () => {
 const {

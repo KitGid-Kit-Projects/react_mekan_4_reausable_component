@@ -1,6 +1,7 @@
 import React from 'react';
 import { Select } from 'antd';
-import { BaseComponentProps, SelectOption } from '../types/common';
+import type { BaseComponentProps } from '../../types/BaseComponentProps';
+import type { SelectOption } from '../../types/SelectOption';
 
 // Interface defining all props for the SelectBox component
 interface SelectBoxProps extends BaseComponentProps {
