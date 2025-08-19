@@ -17,9 +17,7 @@ App.tsx (# './src/App.tsx')
                │                   └── TextArea {Description} (# './src/components/TextArea.tsx')
                │                       ├── BaseComponentProps (# './src/types/BaseComponentProps.ts')
                └── useCrudExample (# './src/hooks/crudExample/useCrudExample.tsx')
-                   ├── SelectOption (# './src/types/SelectOption.ts')
-                   ├── CrudRecord (# './src/types/CrudRecord.ts')
-                   └── FormData (# './src/types/FormData.ts')
+                 
 
 
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Input } from 'antd';
-import { BaseComponentProps } from '../types/common';
+import { BaseComponentProps } from '../types/BaseComponentProps';
 
 // Destructure Ant Design's TextArea component
 const { TextArea: AntTextArea } = Input;
