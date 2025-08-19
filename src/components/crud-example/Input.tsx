@@ -1,17 +1,28 @@
+// Presentational, reusable text input built on Ant Design.
+// Provides a labeled, controlled input with optional required/disabled states.
 import React from 'react';
+// Import Ant Design's Input component and alias it to avoid name collision.
 import { Input as AntInput } from 'antd';
+// Common component props (className, style) shared across UI components.
 import type { BaseComponentProps } from '../../types/BaseComponentProps';
-
+ 
 // Define the props interface for the Input component
 // Extends BaseComponentProps which includes className and style
 interface InputProps extends BaseComponentProps {
-  label: string;               // Text label for the input field (required)
-  placeholder?: string;        // Placeholder text (optional)
-  value: string;               // Current value of the input (controlled component)
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void; // Change handler
-  required?: boolean;          // Whether to show required indicator (default: false)
-  disabled?: boolean;          // Whether the input is disabled (default: false)
-  type?: 'text' | 'email' | 'password' | 'number'; // HTML input type (default: 'text')
+  // Text label shown above the input.
+  label: string;
+  // Hint text shown inside the input when empty.
+  placeholder?: string;
+  // Controlled value of the input. The parent owns the state.
+  value: string;
+  // Callback invoked on every input change with the native event.
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  // If true, shows a visual required indicator next to the label.
+  required?: boolean;
+  // If true, makes the input non-interactive.
+  disabled?: boolean;
+  // Native input type. Defaults to 'text'.
+  type?: 'text' | 'email' | 'password' | 'number';
 }
 
 /**
@@ -62,6 +73,8 @@ const Input: React.FC<InputProps> = ({
         disabled={disabled}       // Disabled state
         type={type}               // Input type
         // Note: AntInput automatically handles accessibility attributes
+  // For full accessible labeling, consider passing an id and linking
+  // label htmlFor to that id; this component keeps it minimal.
       />
     </div>
   );

@@ -1,11 +1,17 @@
+// Presentational multi-line input component built on Ant Design's TextArea.
+// Exposes a labeled, controlled textarea with optional length/count controls.
 import React from 'react';
+// Import Ant Design Input to access its bundled TextArea subcomponent.
 import { Input } from 'antd';
+// Shared base props used across local UI components (className, style).
 import type { BaseComponentProps } from '../../types/BaseComponentProps';
 
 // Destructure Ant Design's TextArea component
+// We alias it to AntTextArea to avoid naming conflicts with our local component.
 const { TextArea: AntTextArea } = Input;
 
 // Interface defining all props for the TextArea component
+// Controlled pattern: parent provides value and onChange, this component renders UI.
 interface TextAreaProps extends BaseComponentProps {
   label: string;         // Text label displayed above the textarea
   placeholder?: string;  // Placeholder text when empty
@@ -28,6 +34,11 @@ interface TextAreaProps extends BaseComponentProps {
  * - Size and length controls
  * - Full accessibility support
  * 
+ * Notes:
+ * - For explicit accessible labeling, consider wiring htmlFor on the label and an id
+ *   on the textarea. AntD also manages ARIA attributes internally.
+ * - When using showCount, consider setting maxLength to guide user input.
+ * 
  * @param props - Configuration options for the textarea
  */
 const TextArea: React.FC<TextAreaProps> = ({
@@ -44,7 +55,7 @@ const TextArea: React.FC<TextAreaProps> = ({
   style,          // Optional inline styles for container
 }) => {
   return (
-    // Container div for the textarea component
+  // Container div for the textarea component; accepts external styling hooks
     <div className={className} style={style}>
       {/* Label with optional required indicator */}
       <label style={{ 
@@ -87,6 +98,7 @@ const TextArea: React.FC<TextAreaProps> = ({
         // autoSize - for dynamic height
         // allowClear - to show clear button
         // etc.
+    // Accessibility tip: pass an id and pair the label via htmlFor when needed.
       />
     </div>
   );
