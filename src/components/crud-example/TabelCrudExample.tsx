@@ -1,12 +1,12 @@
-import React from 'react'
+
 import Card from '../Card'
 import Table from '../Table'
 
+
+
 export default function TabelCrudExample({
     columns,
-    records,
-    // handleEdit,
-    // handleDelete
+    records
     
 }) {
   return (
@@ -14,8 +14,6 @@ export default function TabelCrudExample({
     <Table
       columns={columns}
       data={records}
-      // onEdit={handleEdit}
-      // onDelete={handleDelete}
       pagination={records.length > 10}
       size="middle"
     />

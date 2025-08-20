@@ -1,39 +1,54 @@
-// Import React to enable JSX syntax and React types
-import React from 'react';
-// Import a reusable Input component (your own wrapper/component library)
-import  Input  from "../components/Input.tsx";
-// Import the custom hook that manages form state for this example
-import useCrudExample from '../hooks/crudExample/useCrudExample.tsx';
+import React, { useState } from 'react';
+import { Row, Col, message } from 'antd';
+import { ColumnsType } from 'antd/es/table';
+import useCrudExample from '@/hooks/crudExample/useCrudExample';
+import CreateUpdateCrudExample from '@/components/crud-example/CreateUpdateCrudExample';
+import TabelCrudExample from '@/components/crud-example/TabelCrudExample';
 
-// Declare the CrudExample component using React.FC (function component)
+/**
+ * CRUD Example Component
+ * 
+ * Demonstrates a complete CRUD (Create, Read, Update, Delete) interface using:
+ * - Reusable form components
+ * - In-memory data management
+ * - Ant Design layout components
+ * - Table with sorting/filtering capabilities
+ * 
+ * Features:
+ * - Form validation
+ * - Edit state management
+ * - Loading states
+ * - User feedback (success/error messages)
+ */
 const CrudExample: React.FC = () => {
-  // Call the custom hook at the top level (React Hooks rule).
-  // It returns the current form state and a curried change handler.
-  const {
-    formData,           // { name: string } — current form values
-    // handleInputChange,  // (field: keyof formData) => (e) => void — updates formData[field]
-  } = useCrudExample(); // Initialize and subscribe to the hook's state
+  // Form state management
+const {
+  categoryOptions,
+  records,
+  columns
+}=useCrudExample()
 
-  // Render the component UI
   return (
-    // A simple centered container with padding and a fixed max width
-    <div style={{ padding: '24px', maxWidth: '600px', margin: '0 auto' }}>
-      {/* Controlled Input bound to formData.name.
-          - label: field caption shown by the reusable Input
-          - placeholder: hint text inside the input
-          - value: the current value from form state (keeps input controlled)
-          - onChange: uses a curried handler to update the 'name' field only
-          - required: marks the field as mandatory (UI/validation handled by Input) */}
-      <Input
-        label="Name"
-        placeholder="Enter name"
-        value={formData.name}
-        // onChange={handleInputChange('name')}
-        required
-      />
+    <div style={{ padding: '24px', maxWidth: '1200px', margin: '0 auto' }}>
+      {/* Responsive layout using Ant Design Grid */}
+      <Row gutter={[24, 24]}>
+        {/* Form Section (left column on desktop) */}
+        <Col xs={24} lg={8}>
+          <CreateUpdateCrudExample
+           categoryOptions={categoryOptions}
+          />
+        </Col>
+
+        {/* Table Section (right column on desktop) */}
+        <Col xs={24} lg={16}>
+          <TabelCrudExample 
+              columns={columns}
+              records={records}
+          />
+        </Col>
+      </Row>
     </div>
   );
 };
 
-// Export as default so other modules (e.g., App.tsx) can import it directly
 export default CrudExample;

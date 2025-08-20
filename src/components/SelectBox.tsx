@@ -1,18 +1,6 @@
 import React from 'react';
 import { Select } from 'antd';
-import { BaseComponentProps, SelectOption } from '../types/common';
 
-// Interface defining all props for the SelectBox component
-interface SelectBoxProps extends BaseComponentProps {
-  label: string;         // Text label displayed above the select box
-  options: SelectOption[]; // Array of selectable options (must have label/value)
-  value: string;         // Currently selected value (controlled component)
-  // onChange: (value: string) => void; // Callback when selection changes
-  placeholder?: string;  // Placeholder text when no option is selected
-  required?: boolean;    // Whether to show required field indicator
-  disabled?: boolean;    // Whether the select is interactive
-  allowClear?: boolean;  // Whether to show clear selection button
-}
 
 /**
  * Enhanced Select Dropdown Component
@@ -25,10 +13,9 @@ interface SelectBoxProps extends BaseComponentProps {
  * 
  * @param props - Configuration options for the select box
  */
-const SelectBox: React.FC<SelectBoxProps> = ({
+const SelectBox: React.FC<any> = ({
   label,          // The text label shown above the select
   options,        // Array of {label, value} objects for dropdown
-  value,          // Currently selected value (controlled)
   // onChange,       // Handler when selection changes (receives new value)
   // placeholder = 'Please select...', // Default placeholder text
   required = false, // Default to not show required indicator
@@ -55,17 +42,6 @@ const SelectBox: React.FC<SelectBoxProps> = ({
       
       {/* Ant Design Select component with all configured props */}
       <Select
-        // Current selected value (undefined clears the selection)
-        value={value || undefined}
-        
-        // Handler called when selection changes
-        // Receives the new value string
-        // onChange={onChange}
-        
-        // Placeholder text when nothing is selected
-        // placeholder={placeholder}
-        
-        // Disables interaction when true
         disabled={disabled}
         
         // Shows X button to clear selection when true

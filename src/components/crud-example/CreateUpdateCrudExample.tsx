@@ -7,7 +7,6 @@ import SelectBox from '../SelectBox'
 import TextArea from '../TextArea'
 
 export default function CreateUpdateCrudExample({
-  formData,
   categoryOptions,
 }) {
   return (
@@ -15,9 +14,10 @@ export default function CreateUpdateCrudExample({
     title={'Create New Record'}
     footer={
       <div style={{ display: 'flex', gap: '8px', justifyContent: 'flex-end' }}>
-      
+       
         <Button
-          text={ 'Create'}
+       
+          // onClick={handleSubmit}
           variant="primary"
         />
       </div>
@@ -27,14 +27,13 @@ export default function CreateUpdateCrudExample({
       <Input
         label="Name"
         placeholder="Enter name"
-        value={formData.name}
+        // onChange={handleInputChange('name')}
         required
       />
 
       <SelectBox
         label="Category"
         options={categoryOptions}
-        value={formData.category}
         placeholder="Select a category"
         required
       />
@@ -42,7 +41,7 @@ export default function CreateUpdateCrudExample({
       <TextArea
         label="Description"
         placeholder="Enter description"
-        value={formData.description}
+        // onChange={handleInputChange('description')}
         rows={4}
         maxLength={500}
         showCount
@@ -51,4 +50,3 @@ export default function CreateUpdateCrudExample({
   </Card>
   )
 }
-
