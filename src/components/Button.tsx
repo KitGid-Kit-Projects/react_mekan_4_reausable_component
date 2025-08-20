@@ -18,7 +18,7 @@ import { BaseComponentProps, ButtonVariant } from '../types/common';
  */
 interface ButtonProps extends BaseComponentProps {
   text: string;
-  onClick?: () => void;
+  // onClick?: () => void;
   variant?: ButtonVariant;
   loading?: boolean;
   disabled?: boolean;
@@ -39,7 +39,7 @@ interface ButtonProps extends BaseComponentProps {
  */
 const Button: React.FC<ButtonProps> = ({
   text,          // The button's display text
-  onClick,       // Click handler function
+  // onClick,       // Click handler function
   variant = 'secondary', // Default to secondary style
   loading = false, // Default not loading
   disabled = false, // Default enabled
@@ -73,7 +73,7 @@ const Button: React.FC<ButtonProps> = ({
      */
     <AntButton
       type={getButtonType()}    // Visual style type
-      onClick={onClick}         // Click handler
+      // onClick={onClick}         // Click handler
       loading={loading}         // Loading state
       disabled={disabled}       // Disabled state
       htmlType={htmlType}       // Native button type

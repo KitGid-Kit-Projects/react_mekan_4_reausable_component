@@ -8,7 +8,6 @@ interface InputProps extends BaseComponentProps {
   label: string;               // Text label for the input field (required)
   placeholder?: string;        // Placeholder text (optional)
   value: string;               // Current value of the input (controlled component)
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void; // Change handler
   required?: boolean;          // Whether to show required indicator (default: false)
   disabled?: boolean;          // Whether the input is disabled (default: false)
   type?: 'text' | 'email' | 'password' | 'number'; // HTML input type (default: 'text')
@@ -37,7 +36,7 @@ const Input: React.FC<InputProps> = ({
   label,
   placeholder,
   value,
-  onChange,
+  // onChange,
   required = false,    // Default value if not provided
   disabled = false,    // Default value if not provided
   type = 'text',       // Default value if not provided
@@ -58,7 +57,7 @@ const Input: React.FC<InputProps> = ({
       <AntInput
         placeholder={placeholder}  // Placeholder text
         value={value}              // Controlled value
-        onChange={onChange}        // Change handler
+        // onChange={onChange}        // Change handler
         disabled={disabled}       // Disabled state
         type={type}               // Input type
         // Note: AntInput automatically handles accessibility attributes

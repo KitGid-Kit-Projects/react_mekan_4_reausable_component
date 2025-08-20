@@ -10,7 +10,7 @@ interface TextAreaProps extends BaseComponentProps {
   label: string;         // Text label displayed above the textarea
   placeholder?: string;  // Placeholder text when empty
   value: string;        // Current content (controlled component)
-  onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void; // Change handler
+  // onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void; // Change handler
   required?: boolean;   // Whether to show required field indicator
   disabled?: boolean;   // Whether the textarea is interactive
   rows?: number;       // Visible number of text lines
@@ -34,7 +34,7 @@ const TextArea: React.FC<TextAreaProps> = ({
   label,          // The text label shown above the textarea
   placeholder,    // Hint text when empty
   value,          // Current text content
-  onChange,       // Handler for text changes
+  // onChange,       // Handler for text changes
   required = false, // Default to not show required indicator
   disabled = false, // Default to enabled state
   rows = 4,       // Default visible rows
@@ -69,7 +69,7 @@ const TextArea: React.FC<TextAreaProps> = ({
         
         // Handler called on text changes
         // Receives the React change event
-        onChange={onChange}
+        // onChange={onChange}
         
         // Disables interaction when true
         disabled={disabled}

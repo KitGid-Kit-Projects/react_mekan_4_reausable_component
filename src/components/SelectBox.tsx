@@ -7,7 +7,7 @@ interface SelectBoxProps extends BaseComponentProps {
   label: string;         // Text label displayed above the select box
   options: SelectOption[]; // Array of selectable options (must have label/value)
   value: string;         // Currently selected value (controlled component)
-  onChange: (value: string) => void; // Callback when selection changes
+  // onChange: (value: string) => void; // Callback when selection changes
   placeholder?: string;  // Placeholder text when no option is selected
   required?: boolean;    // Whether to show required field indicator
   disabled?: boolean;    // Whether the select is interactive
@@ -29,8 +29,8 @@ const SelectBox: React.FC<SelectBoxProps> = ({
   label,          // The text label shown above the select
   options,        // Array of {label, value} objects for dropdown
   value,          // Currently selected value (controlled)
-  onChange,       // Handler when selection changes (receives new value)
-  placeholder = 'Please select...', // Default placeholder text
+  // onChange,       // Handler when selection changes (receives new value)
+  // placeholder = 'Please select...', // Default placeholder text
   required = false, // Default to not show required indicator
   disabled = false, // Default to enabled state
   allowClear = true, // Default to showing clear button
@@ -60,10 +60,10 @@ const SelectBox: React.FC<SelectBoxProps> = ({
         
         // Handler called when selection changes
         // Receives the new value string
-        onChange={onChange}
+        // onChange={onChange}
         
         // Placeholder text when nothing is selected
-        placeholder={placeholder}
+        // placeholder={placeholder}
         
         // Disables interaction when true
         disabled={disabled}
