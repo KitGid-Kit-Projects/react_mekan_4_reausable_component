@@ -11,7 +11,7 @@ const CrudExample: React.FC = () => {
   // It returns the current form state and a curried change handler.
   const {
     formData,           // { name: string } — current form values
-    handleInputChange,  // (field: keyof formData) => (e) => void — updates formData[field]
+    // handleInputChange,  // (field: keyof formData) => (e) => void — updates formData[field]
   } = useCrudExample(); // Initialize and subscribe to the hook's state
 
   // Render the component UI
@@ -28,7 +28,7 @@ const CrudExample: React.FC = () => {
         label="Name"
         placeholder="Enter name"
         value={formData.name}
-        onChange={handleInputChange('name')}
+        // onChange={handleInputChange('name')}
         required
       />
     </div>
