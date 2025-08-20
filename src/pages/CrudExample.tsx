@@ -57,15 +57,7 @@ const {
           />
         </Col>
 
-        {/* Table Section (right column on desktop) */}
-        {/* <Col xs={24} lg={16}>
-          <TabelCrudExample 
-              columns={columns}
-              records={records}
-              handleEdit={handleEdit}
-              handleDelete={handleDelete}
-          />
-        </Col> */}
+    
       </Row>
     </div>
   );
