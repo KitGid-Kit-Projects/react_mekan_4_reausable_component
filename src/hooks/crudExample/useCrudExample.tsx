@@ -61,18 +61,6 @@ export default function useCrudExample() {
       // Simulate API call delay
       await new Promise(resolve => setTimeout(resolve, 500));
 
-      if (editingRecord) {
-        // Update existing record
-        setRecords(prev =>
-          prev.map(record =>
-            record.id === editingRecord.id
-              ? { ...record, ...formData }
-              : record
-          )
-        );
-        message.success('Record updated successfully!');
-        setEditingRecord(null);
-      } else {
         // Create new record
         const newRecord: CrudRecord = {
           id: Date.now().toString(),
@@ -81,7 +69,7 @@ export default function useCrudExample() {
         };
         setRecords(prev => [...prev, newRecord]);
         message.success('Record created successfully!');
-      }
+      
 
       // Reset form
       setFormData({ name: '', category: '', description: '' });
@@ -96,15 +84,6 @@ export default function useCrudExample() {
    * Loads a record into the form for editing
    * @param record - The record to edit
    */
-  const handleEdit = (record: CrudRecord) => {
-    setFormData({
-      name: record.name,
-      category: record.category,
-      description: record.description,
-    });
-    setEditingRecord(record);
-    message.info('Record loaded for editing');
-  };
 
   /**
    * Deletes a record from the data
@@ -165,7 +144,6 @@ export default function useCrudExample() {
     handleInputChange,
     handleSelectChange,
     handleSubmit,
-    handleEdit,
     handleDelete,
     handleCancelEdit,
     columns,

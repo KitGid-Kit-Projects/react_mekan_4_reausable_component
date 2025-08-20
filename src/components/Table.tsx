@@ -1,28 +1,6 @@
 import React from 'react';
 import { Table as AntTable, Button as AntButton, Space } from 'antd';
 import { ColumnsType } from 'antd/es/table';
-import { BaseComponentProps } from '../types/common';
-
-// Define the action interface locally with correct Ant Design button types
-interface TableAction {
-  key: string;
-  label: string;
-  onClick: (record: any) => void;
-  type?: 'link' | 'text' | 'default' | 'primary' | 'dashed';
-  danger?: boolean;
-}
-
-// Using generic interface for flexible data types
-interface TableProps<T = any> extends BaseComponentProps {
-  columns: ColumnsType<T>;
-  data: T[];
-  loading?: boolean;
-  pagination?: boolean;
-  size?: 'small' | 'middle' | 'large';
-  actions?: TableAction[];
-  onEdit?: (record: T) => void;
-  onDelete?: (record: T) => void;
-}
 
 /**
  * Reusable Table component built on top of Ant Design
@@ -48,7 +26,7 @@ function Table<T extends Record<string, any>>({
   onDelete,
   className,
   style,
-}: TableProps<T>) {
+}: any) {
   // Create action column if edit/delete handlers or custom actions are provided
   const actionColumn: ColumnsType<T>[0] | null = (onEdit || onDelete || actions) ? {
     title: 'Actions',

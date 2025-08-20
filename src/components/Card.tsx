@@ -1,27 +1,6 @@
 import React from 'react';
 import { Card as AntCard } from 'antd';
-import { BaseComponentProps, ComponentChildren } from '../types/common';
 
-/**
- * Interface defining the props for the Card component
- * 
- * @property title - The title displayed in the card header (required)
- * @property children - Main content of the card (required)
- * @property footer - Content displayed in the footer area (optional)
- * @property hoverable - Enables hover effect with box shadow (default: false)
- * @property loading - Shows loading skeleton instead of content (default: false)
- * 
- * Inherits from BaseComponentProps:
- * @property className - Optional CSS class for custom styling
- * @property style - Optional inline styles
- */
-interface CardProps extends BaseComponentProps {
-  title: string;
-  children: ComponentChildren;
-  footer?: ComponentChildren;
-  hoverable?: boolean;
-  loading?: boolean;
-}
 
 /**
  * Enhanced Card Component
@@ -36,7 +15,7 @@ interface CardProps extends BaseComponentProps {
  * 
  * @param props - Configuration options for the card
  */
-const Card: React.FC<CardProps> = ({
+const Card: React.FC<any> = ({
   title,          // The header title text (required)
   children,       // Main content (required)
   footer,         // Footer content (optional)

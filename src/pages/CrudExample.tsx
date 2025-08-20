@@ -1,8 +1,5 @@
-import React, { useState } from 'react';
-import { Row, Col, message } from 'antd';
-import { ColumnsType } from 'antd/es/table';
-import { Button, Card, Input, SelectBox, TextArea, Table } from '../components';
-import { CrudRecord, SelectOption } from '../types/common';
+import React from 'react';
+import { Row, Col } from 'antd';
 import useCrudExample from '@/hooks/crudExample/useCrudExample';
 import CreateUpdateCrudExample from '@/components/crud-example/CreateUpdateCrudExample';
 import TabelCrudExample from '@/components/crud-example/TabelCrudExample';
@@ -30,7 +27,6 @@ const {
   handleInputChange,
   handleSelectChange,
   handleSubmit,
-  handleEdit,
   handleDelete,
   handleCancelEdit,
   columns,
@@ -62,7 +58,6 @@ const {
           <TabelCrudExample 
               columns={columns}
               records={records}
-              handleEdit={handleEdit}
               handleDelete={handleDelete}
           />
         </Col>
