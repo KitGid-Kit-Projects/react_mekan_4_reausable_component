@@ -5,8 +5,8 @@ import Table from '../Table'
 export default function TabelCrudExample({
     columns,
     records,
-    handleEdit,
-    handleDelete
+    // handleEdit,
+    // handleDelete
     
 }) {
   return (
@@ -14,8 +14,8 @@ export default function TabelCrudExample({
     <Table
       columns={columns}
       data={records}
-      onEdit={handleEdit}
-      onDelete={handleDelete}
+      // onEdit={handleEdit}
+      // onDelete={handleDelete}
       pagination={records.length > 10}
       size="middle"
     />

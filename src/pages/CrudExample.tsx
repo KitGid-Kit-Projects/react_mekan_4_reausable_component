@@ -62,8 +62,8 @@ const {
           <TabelCrudExample 
               columns={columns}
               records={records}
-              handleEdit={handleEdit}
-              handleDelete={handleDelete}
+              // handleEdit={handleEdit}
+              // handleDelete={handleDelete}
           />
         </Col>
       </Row>
