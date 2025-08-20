@@ -1,82 +1,56 @@
 # Component Relation Diagram (CRD)
 
-App.tsx (# './src/App.tsx')
-├── [ConfigProvider] (# 'antd')
-│           └── CrudExample (# './src/pages/CrudExample.tsx')
-│               ├── [Row] {Layout Container} (# 'antd')
-│               │   ├── [Col] {Form Column} (# 'antd')
-│               │   │   └── CreateUpdateCrudExample (# './src/components/crud-example/CreateUpdateCrudExample.tsx')
-│               │   │       └── Card {Form Card Container} (# './src/components/Card.tsx')
-│               │   │           ├── BaseComponentProps (# './src/types/common.ts')
-│               │   │           ├── ComponentChildren (# './src/types/common.ts')
-│               │   │           ├── Input {Product Name Field} (# './src/components/Input.tsx')
-│               │   │           │   ├── BaseComponentProps (# './src/types/common.ts')
-│               │   │           ├── SelectBox {Category Dropdown} (# './src/components/SelectBox.tsx')
-│               │   │           │   ├── BaseComponentProps (# './src/types/common.ts')
-│               │   │           │   └── SelectOption (# './src/types/common.ts')
-│               │   │           ├── TextArea {Product Description Field} (# './src/components/TextArea.tsx')
-│               │   │           │   ├── BaseComponentProps (# './src/types/common.ts')
-│               │   │           └── footer {Card Footer Actions} (# card footer section)
-│               │   │               ├── Button {Cancel Button} (# './src/components/Button.tsx')
-│               │   │               │   ├── BaseComponentProps (# './src/types/common.ts')
-│               │   │               │   ├── ButtonVariant (# './src/types/common.ts')
-│               │   │               └── Button {Create/Update Button} (# './src/components/Button.tsx')
-│               │   │                   ├── BaseComponentProps (# './src/types/common.ts')
-│               │   │                   ├── ButtonVariant (# './src/types/common.ts')
-│               │   └── [Col] {Table Column} (# 'antd')
-│               │       └── TabelCrudExample (# './src/components/crud-example/TabelCrudExample.tsx')
-│               │           └── Card {Table Card Container} (# './src/components/Card.tsx')
-│               │               ├── BaseComponentProps (# './src/types/common.ts')
-│               │               ├── ComponentChildren (# './src/types/common.ts')
-│               │               └── Table {CRUD Data Table} (# './src/components/Table.tsx')
-│               │                   │      ├── [th] {Name Column} (# native HTML element)
-│               │                   │      ├── [th] {Category Column} (# native HTML element)
-│               │                   │      ├── [th] {Description Column} (# native HTML element)
-│               │                   │      ├── [th] {Created At Column} (# native HTML element)
-│               │                   │      └── [th] {Actions Column} (# native HTML element)
-│               │                   │                ├── [AntButton] {Edit Record} (# 'antd')
-│               │                   │                ├── [AntButton] {Delete Record} (# 'antd')
-│               │                   │                └── [AntButton] {Custom Actions} (# 'antd')
-│               │                   ├── [Space] (# 'antd')
-│               │                   ├── BaseComponentProps (# './src/types/common.ts')
-│               └── useCrudExample (# './src/hooks/crudExample/useCrudExample.tsx')
-│                   ├── [useState] (# 'react')
-│                   ├── [useCallback] (# 'react')
-│                   ├── SelectOption (# './src/types/common.ts')
-│                   ├── CrudRecord (# './src/types/common.ts')
-│                   └── FormData (# './src/types/common.ts')
-```
-
-## Type Definitions
-
-```
-types/common.ts (# './src/types/common.ts')
-├── BaseComponentProps (# interface)
-├── SelectOption (# interface)
-├── TableAction (# interface)
-├── CrudRecord (# interface)
-├── ButtonVariant (# type)
-├── ComponentChildren (# type)
-└── FormData (# type)
-```
-
-## Component Exports
-
-```
-components/index.ts (# './src/components/index.ts')
-├── Input (# './src/components/Input.tsx')
-├── Card (# './src/components/Card.tsx')
-├── Button (# './src/components/Button.tsx')
-├── SelectBox (# './src/components/SelectBox.tsx')
-├── TextArea (# './src/components/TextArea.tsx')
-└── Table (# './src/components/Table.tsx')
-```
+| No | Tree                                                               | Path                                                                     |
+|----|------------------------------------------------------------------- |--------------------------------------------------------------------------|
+| 01 | App.tsx                                                            | './src/App.tsx'                                                          |
+| 02 | └── [ConfigProvider]                                               | 'antd'                                                                   |
+| 03 |     └── CrudExample                                                | './src/pages/CrudExample.tsx'                                            |
+| 04 |         ├── [Row] {Layout Container}                               | 'antd'                                                                   |
+| 05 |         │   ├── [Col] {Form Column}                                | 'antd'                                                                   |
+| 06 |         │   │   └── CreateUpdateCrudExample                        | './src/components/crud-example/CreateUpdateCrudExample.tsx'              |
+| 07 |         │   │       └── Card {Form Card Container}                 | './src/components/Card.tsx'                                              |
+| 08 |         │   │           ├──<props> BaseComponentProps              | './src/types/common.ts'                                                  |
+| 09 |         │   │           ├──<props> ComponentChildren               | './src/types/common.ts'                                                  |
+| 10 |         │   │           ├── Input {Product Name Field}             | './src/components/Input.tsx'                                             |
+| 11 |         │   │           │   └──<props> BaseComponentProps          | './src/types/common.ts'                                                  |
+| 12 |         │   │           ├── SelectBox {Category Dropdown}          | './src/components/SelectBox.tsx'                                         |
+| 13 |         │   │           │   ├──<props> BaseComponentProps          | './src/types/common.ts'                                                  |
+| 14 |         │   │           │   └──<props> SelectOption                | './src/types/common.ts'                                                  |
+| 15 |         │   │           ├── TextArea {Product Description Field}   | './src/components/TextArea.tsx'                                          |
+| 16 |         │   │           │   └──<props> BaseComponentProps          | './src/types/common.ts'                                                  |
+| 17 |         │   │           ├── Button {Cancel Button}                 | './src/components/Button.tsx'                                            |
+| 18 |         │   │           │   ├──<props> BaseComponentProps          | './src/types/common.ts'                                                  |
+| 19 |         │   │           │   └──<props> ButtonVariant               | './src/types/common.ts'                                                  |
+| 20 |         │   │           └── Button {Create/Update Button}          | './src/components/Button.tsx'                                            |
+| 21 |         │   │               ├──<props> BaseComponentProps          | './src/types/common.ts'                                                  | 
+| 22 |         │   │               └──<props> ButtonVariant               | './src/types/common.ts'                                                  | 
+| 23 |         │   └── [Col] {Table Column}                               | 'antd'                                                                   |
+| 24 |         │       └── TabelCrudExample                               | './src/components/crud-example/TabelCrudExample.tsx'                     |
+| 25 |         │           └── Card {Table Card Container}                | './src/components/Card.tsx'                                              |
+| 26 |         │               ├──<props> BaseComponentProps              | './src/types/common.ts'                                                  |
+| 27 |         │               ├──<props> ComponentChildren               | './src/types/common.ts'                                                  |
+| 28 |         │               └── Table {CRUD Data Table}                | './src/components/Table.tsx'                                             |
+| 29 |         │                   ├──<props> BaseComponentProps          | './src/types/common.ts'                                                  |
+| 30 |         │                   ├── [Space]                            | 'antd'                                                                   |
+| 31 |         │                   ├── [th] {Name Column}                 | 'native HTML element'                                                    |
+| 32 |         │                   ├── [th] {Category Column}             | 'native HTML element'                                                    |
+| 33 |         │                   ├── [th] {Description Column}          | 'native HTML element'                                                    |
+| 34 |         │                   ├── [th] {Created At Column}           | 'native HTML element'                                                    |
+| 35 |         │                   ├── [th] {Actions Column}              | 'native HTML element'                                                    |
+| 36 |         │                   └── Actions Column                     |                                                                          |
+| 37 |         │                       ├── [AntButton] {Edit Record}      | 'antd'                                                                   |
+| 38 |         │                       ├── [AntButton] {Delete Record}    | 'antd'                                                                   |
+| 39 |         │                       └── [AntButton] {Custom Actions}   | 'antd'                                                                   |
+| 40 |         └── useCrudExample                                         | './src/hooks/crudExample/useCrudExample.tsx'                             |
+| 43 |             ├──<props> SelectOption                                | './src/types/common.ts'                                                  |
+| 44 |             ├──<props> CrudRecord                                  | './src/types/common.ts'                                                  |
+| 45 |             └──<props> FormData                                    | './src/types/common.ts'                                                  |
+|    |                                                                    |                                                                          |
+|----|--------------------------------------------------------------------|--------------------------------------------------------------------------|
 
 ## Legend
 
-- `└──` ➝ Nested JSX usage
-- `└──⧉` ➝ Modal/Popup triggered
-- `└──≫` ➝ Redirect/Navigation
+- `├──<props>` ➝ Component props/attributes/types passed to components
 - `[ComponentName]` = Library components
 - `ComponentName` = Developer components
-- `{Description}` = UI element purpose/content (only after component names)
+- `{Description}` = UI element purpose/content
