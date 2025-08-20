@@ -26,9 +26,9 @@ const {
   categoryOptions,
   handleInputChange,
   handleSelectChange,
-
   columns,
   records,
+  handleSubmit
 }=useCrudExample()
 
   return (
@@ -42,6 +42,7 @@ const {
            categoryOptions={categoryOptions}
            handleInputChange={handleInputChange}
            handleSelectChange={handleSelectChange}
+           handleSubmit={handleSubmit}
           />
         </Col>
 

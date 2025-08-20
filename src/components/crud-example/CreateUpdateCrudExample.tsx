@@ -11,7 +11,7 @@ export default function CreateUpdateCrudExample({
   categoryOptions,
   handleInputChange,
   handleSelectChange,
-
+  handleSubmit
 
 }) {
   return (
@@ -22,7 +22,7 @@ export default function CreateUpdateCrudExample({
        
         <Button
           text={'Create'}
-          // onClick={handleSubmit}
+          onClick={handleSubmit}
           variant="primary"
         />
       </div>

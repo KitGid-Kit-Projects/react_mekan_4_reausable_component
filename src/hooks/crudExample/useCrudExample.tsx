@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { Row, Col, message } from 'antd';
 import { ColumnsType } from 'antd/es/table';
 import { CrudRecord, SelectOption } from '@/components';
 export default function useCrudExample() {
@@ -10,6 +11,7 @@ export default function useCrudExample() {
 
   // Data storage (simulating a database)
   const [records, setRecords] = useState<CrudRecord[]>([]);
+  const [editingRecord, setEditingRecord] = useState<CrudRecord | null>(null);
 
 
   // Category options for the select dropdown
@@ -42,21 +44,57 @@ export default function useCrudExample() {
   /**
    * Handles form submission for both create and update operations
    */
+  const handleSubmit = async () => {
+    // Validate required fields
+    if (!formData.name.trim()) {
+      message.error('Name is required');
+      return;
+    }
+    if (!formData.category) {
+      message.error('Category is required');
+      return;
+    }
 
 
-  /**
-   * Loads a record into the form for editing
-   * @param record - The record to edit
-   */
-  /**
-   * Deletes a record from the data
-   * @param record - The record to delete
-   */
 
+    try {
+      // Simulate API call delay
+      await new Promise(resolve => setTimeout(resolve, 500));
 
-  /**
-   * Cancels the current edit operation
-   */
+      if (editingRecord) {
+        // Update existing record
+        // setRecords(prev =>
+        //   prev.map(record =>
+        //     record.id === editingRecord.id
+        //       ? { ...record, ...formData }
+        //       : record
+        //   )
+        // );
+        message.success('Record updated successfully!');
+        setEditingRecord(null);
+      } else {
+        // Create new record
+        // const newRecord: CrudRecord = {
+        //   id: Date.now().toString(),
+        //   ...formData,
+        //   createdAt: new Date(),
+        // };
+        // setRecords(prev => [...prev, newRecord]);
+        console.log(formData);
+        
+        message.success('Record created successfully!');
+      }
+
+      // Reset form
+      setFormData({ name: '', category: '', description: '' });
+    } catch (error) {
+      message.error('An error occurred. Please try again.');
+    } finally {
+
+    }
+  };
+
+  
 
   // Table column configuration
   const columns: ColumnsType<CrudRecord> = [
@@ -92,8 +130,8 @@ export default function useCrudExample() {
     categoryOptions,
     handleInputChange,
     handleSelectChange,
-  
     columns,
     records,
+    handleSubmit
   }
 }
