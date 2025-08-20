@@ -5,7 +5,7 @@ import { Button, Card, Input, SelectBox, TextArea, Table } from '../components';
 import { CrudRecord, SelectOption } from '../types/common';
 import useCrudExample from '@/hooks/crudExample/useCrudExample';
 import CreateUpdateCrudExample from '@/components/crud-example/CreateUpdateCrudExample';
-import TabelCrudExample from '@/components/crud-example/TabelCrudExample';
+
 
 /**
  * CRUD Example Component
@@ -58,14 +58,14 @@ const {
         </Col>
 
         {/* Table Section (right column on desktop) */}
-        <Col xs={24} lg={16}>
+        {/* <Col xs={24} lg={16}>
           <TabelCrudExample 
               columns={columns}
               records={records}
               handleEdit={handleEdit}
               handleDelete={handleDelete}
           />
-        </Col>
+        </Col> */}
       </Row>
     </div>
   );
