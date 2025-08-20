@@ -1,22 +1,10 @@
 import React from 'react';
 import { Input } from 'antd';
-import { BaseComponentProps } from '../types/common';
 
 // Destructure Ant Design's TextArea component
 const { TextArea: AntTextArea } = Input;
 
 // Interface defining all props for the TextArea component
-interface TextAreaProps extends BaseComponentProps {
-  label: string;         // Text label displayed above the textarea
-  placeholder?: string;  // Placeholder text when empty
-  value: string;        // Current content (controlled component)
-  onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void; // Change handler
-  required?: boolean;   // Whether to show required field indicator
-  disabled?: boolean;   // Whether the textarea is interactive
-  rows?: number;       // Visible number of text lines
-  maxLength?: number;  // Maximum allowed characters
-  showCount?: boolean; // Whether to display character counter
-}
 
 /**
  * Enhanced TextArea Component
@@ -30,7 +18,7 @@ interface TextAreaProps extends BaseComponentProps {
  * 
  * @param props - Configuration options for the textarea
  */
-const TextArea: React.FC<TextAreaProps> = ({
+const TextArea: React.FC<any> = ({
   label,          // The text label shown above the textarea
   placeholder,    // Hint text when empty
   value,          // Current text content

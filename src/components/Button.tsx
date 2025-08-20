@@ -1,6 +1,5 @@
 import React from 'react';
 import { Button as AntButton } from 'antd';
-import { BaseComponentProps, ButtonVariant } from '../types/common';
 
 /**
  * Interface defining the Button component's props
@@ -16,14 +15,6 @@ import { BaseComponentProps, ButtonVariant } from '../types/common';
  * @property className - Optional CSS class for custom styling
  * @property style - Optional inline styles
  */
-interface ButtonProps extends BaseComponentProps {
-  text: string;
-  onClick?: () => void;
-  variant?: ButtonVariant;
-  loading?: boolean;
-  disabled?: boolean;
-  htmlType?: 'button' | 'submit' | 'reset';
-}
 
 /**
  * Enhanced Button Component
@@ -37,7 +28,7 @@ interface ButtonProps extends BaseComponentProps {
  * 
  * @param props - Configuration options for the button
  */
-const Button: React.FC<ButtonProps> = ({
+const Button: React.FC<any> = ({
   text,          // The button's display text
   onClick,       // Click handler function
   variant = 'secondary', // Default to secondary style

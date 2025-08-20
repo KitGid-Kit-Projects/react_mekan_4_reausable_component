@@ -11,28 +11,19 @@ export default function CreateUpdateCrudExample({
   categoryOptions,
   handleInputChange,
   handleSelectChange,
-  handleSubmit,
-  handleCancelEdit,
-  isSubmitting,
-  editingRecord
+
+
 }) {
   return (
     <Card
-    title={editingRecord ? 'Edit Record' : 'Create New Record'}
+    title={ 'Create New Record'}
     footer={
       <div style={{ display: 'flex', gap: '8px', justifyContent: 'flex-end' }}>
-        {editingRecord && (
-          <Button
-            text="Cancel"
-            onClick={handleCancelEdit}
-            variant="secondary"
-          />
-        )}
+       
         <Button
-          text={editingRecord ? 'Update' : 'Create'}
-          onClick={handleSubmit}
+          text={'Create'}
+          // onClick={handleSubmit}
           variant="primary"
-          loading={isSubmitting}
         />
       </div>
     }
