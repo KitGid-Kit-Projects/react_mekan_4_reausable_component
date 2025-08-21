@@ -1,8 +1,8 @@
 import React from 'react';
 import { Row, Col } from 'antd';
-import useCrudExample from '@/hooks/crudExample/useCrudExample';
-import CreateUpdateCrudExample from '@/components/crud-example/CreateUpdateCrudExample';
-import TabelCrudExample from '@/components/crud-example/TabelCrudExample';
+import useCrudExample from '@/hooks/useCrudExample';
+import CreateUpdateCrudExample from '@/components/CreateUpdateCrudExample';
+import TabelCrudExample from '@/components/TabelCrudExample';
 
 /**
  * CRUD Example Component
