@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Row, Col, message } from 'antd';
 import { ColumnsType } from 'antd/es/table';
-import useCrudExample from '@/hooks/crudExample/useCrudExample';
-import CreateUpdateCrudExample from '@/components/crud-example/CreateUpdateCrudExample';
-import TabelCrudExample from '@/components/crud-example/TabelCrudExample';
+import useCrudExample from '@/hooks/useCrudExample';
+import CreateUpdateCrudExample from '@/components/CreateUpdateCrudExample';
+import TabelCrudExample from '@/components/TabelCrudExample';
 
 /**
  * CRUD Example Component

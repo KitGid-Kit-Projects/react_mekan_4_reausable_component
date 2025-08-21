@@ -63,36 +63,6 @@ function Table<T extends object = any>({
       fixed: 'right' as const,
       render: (_, record: T) => (
         <Space size="small">
-          {onEdit && (
-            <Button 
-              type="primary" 
-              size="small" 
-              onClick={() => onEdit(record)}
-            >
-              Edit
-            </Button>
-          )}
-          {onDelete && (
-            <Button 
-              type="primary" 
-              danger 
-              size="small" 
-              onClick={() => onDelete(record)}
-            >
-              Delete
-            </Button>
-          )}
-          {actions && actions.map((action) => (
-            <Button
-              key={action.key}
-              type={action.type || 'default'}
-              danger={action.danger}
-              size="small"
-              onClick={() => action.onClick(record)}
-            >
-              {action.label}
-            </Button>
-          ))}
         </Space>
       ),
     } : null;
