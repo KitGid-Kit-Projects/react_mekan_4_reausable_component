@@ -1,10 +1,10 @@
 
 import React from 'react'
-import Card from '../Card'
-import Button from '../Button'
-import Input from '../Input'
-import SelectBox from '../SelectBox'
-import TextArea from '../TextArea'
+import Card from './Card'
+import Button from './Button'
+import Input from './Input'
+import SelectBox from './SelectBox'
+import TextArea from './TextArea'
 
 export default function CreateUpdateCrudExample({
   formData,

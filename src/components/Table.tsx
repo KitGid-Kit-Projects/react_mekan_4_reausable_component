@@ -37,36 +37,6 @@ function Table<T extends Record<string, any>>({
     width: 150,
     render: (_, record) => (
       <Space size="small">
-        {onEdit && (
-          <AntButton 
-            type="primary" 
-            size="small" 
-            onClick={() => onEdit(record)}
-          >
-            Edit
-          </AntButton>
-        )}
-        {onDelete && (
-          <AntButton 
-            type="primary" 
-            danger 
-            size="small" 
-            onClick={() => onDelete(record)}
-          >
-            Delete
-          </AntButton>
-        )}
-        {actions && actions.map((action) => (
-          <AntButton
-            key={action.key}
-            type={action.type || 'default'}
-            danger={action.danger}
-            size="small"
-            onClick={() => action.onClick(record)}
-          >
-            {action.label}
-          </AntButton>
-        ))}
       </Space>
     ),
   } : null;

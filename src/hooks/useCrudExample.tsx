@@ -59,7 +59,6 @@ export default function useCrudExample() {
 
     try {
       // Simulate API call delay
-      await new Promise(resolve => setTimeout(resolve, 500));
 
       if (editingRecord) {
         // Update existing record
