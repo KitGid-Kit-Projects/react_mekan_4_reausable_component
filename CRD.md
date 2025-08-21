@@ -7,7 +7,7 @@ No   | Tree                                                                   | 
 03   |     └── CrudExample                                                    |     './src/pages/CrudExample.tsx'                                         |
 04   |         ├── [Row] {Layout Container}                                   |     'antd'                                                                |
 05   |         │   ├── [Col] {Form Column}                                    |     'antd'                                                                |
-06   |         │   │   └── CreateUpdateCrudExample                            |     './src/components/crud-example/CreateUpdateCrudExample.tsx'           |
+06   |         │   │   └── CreateUpdateCrudExample                            |     './src/components/CreateUpdateCrudExample.tsx'                        |
 07   |         │   │       └── Card {Form Card Container}                     |     './src/components/Card.tsx'                                           |
 08   |         │   │           ├──<props> BaseComponentProps                  |     './src/types/common.ts'                                               |
 09   |         │   │           ├──<props> ComponentChildren                   |     './src/types/common.ts'                                               |
@@ -25,7 +25,7 @@ No   | Tree                                                                   | 
 21   |         │   │               ├──<props> BaseComponentProps              |     './src/types/common.ts'                                               |
 22   |         │   │               └──<props> ButtonVariant                   |     './src/types/common.ts'                                               |
 23   |         │   └── [Col] {Table Column}                                   |     'antd'                                                                |
-24   |         │       └── TabelCrudExample                                   |     './src/components/crud-example/TabelCrudExample.tsx'                  |
+24   |         │       └── TabelCrudExample                                   |     './src/components/TabelCrudExample.tsx'                               |
 25   |         │           └── Card {Table Card Container}                    |     './src/components/Card.tsx'                                           |
 26   |         │               ├──<props> BaseComponentProps                  |     './src/types/common.ts'                                               |
 27   |         │               ├──<props> ComponentChildren                   |     './src/types/common.ts'                                               |

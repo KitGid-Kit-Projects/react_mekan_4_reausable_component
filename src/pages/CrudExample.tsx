@@ -3,9 +3,9 @@ import { Row, Col, message } from 'antd';
 import { ColumnsType } from 'antd/es/table';
 import { Button, Card, Input, SelectBox, TextArea, Table } from '../components';
 import { CrudRecord, SelectOption } from '../types/common';
-import useCrudExample from '@/hooks/crudExample/useCrudExample';
-import CreateUpdateCrudExample from '@/components/crud-example/CreateUpdateCrudExample';
-import TabelCrudExample from '@/components/crud-example/TabelCrudExample';
+import useCrudExample from '@/hooks/useCrudExample';
+import CreateUpdateCrudExample from '@/components/CreateUpdateCrudExample';
+import TabelCrudExample from '@/components/TabelCrudExample';
 
 /**
  * CRUD Example Component
