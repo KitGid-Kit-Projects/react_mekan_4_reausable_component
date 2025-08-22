@@ -21,29 +21,32 @@ import TabelCrudExample from '@/components/TabelCrudExample';
  * - User feedback (success/error messages)
  */
 const CrudExample: React.FC = () => {
-  // Form state management
-const {
-  categoryOptions,
-  records,
-  columns
-}=useCrudExample()
+  // Call the custom hook to get category options, records, and table columns
+  const {
+    categoryOptions, // Options for the category dropdown in the form
+    records,         // Array of data records for the table
+    columns          // Table column definitions
+  } = useCrudExample();
 
   return (
+    // Main container with padding and centered max width
     <div style={{ padding: '24px', maxWidth: '1200px', margin: '0 auto' }}>
       {/* Responsive layout using Ant Design Grid */}
       <Row gutter={[24, 24]}>
         {/* Form Section (left column on desktop) */}
         <Col xs={24} lg={8}>
+          {/* Render the create/update form with category options */}
           <CreateUpdateCrudExample
-           categoryOptions={categoryOptions}
+            categoryOptions={categoryOptions}
           />
         </Col>
 
         {/* Table Section (right column on desktop) */}
         <Col xs={24} lg={16}>
+          {/* Render the table with columns and records */}
           <TabelCrudExample 
-              columns={columns}
-              records={records}
+            columns={columns}
+            records={records}
           />
         </Col>
       </Row>
@@ -51,4 +54,5 @@ const {
   );
 };
 
+// Export the CrudExample component as default
 export default CrudExample;
