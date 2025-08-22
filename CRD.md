@@ -14,7 +14,7 @@ No   | Tree                                                                   | 
 10   |         │   │           ├── TextArea {Product Description Field}       |     './src/components/TextArea.tsx'                                       |
 11   |         │   │           └── Button {Create/Update Button}              |     './src/components/Button.tsx'                                         |
 12   |         │   └── [Col] {Table Column}                                   |     'antd'                                                                |
-13   |         │       └── TabelCrudExample                                   |     './src/components/TabelCrudExample.tsx'                               |
+13   |         │       └── TableCrudExample                                   |     './src/components/TableCrudExample.tsx'                               |
 14   |         │           └── Card {Table Card Container}                    |     './src/components/Card.tsx'                                           |
 15   |         │               └── Table {CRUD Data Table}                    |     './src/components/Table.tsx'                                          |
 16   |         │                   ├── [th] {Name Column}                     |     'native HTML element'                                                 |
