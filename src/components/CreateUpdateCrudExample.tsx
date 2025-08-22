@@ -1,20 +1,20 @@
 // Import React library for building UI components
 import React from 'react'
 // Import custom Card component for wrapping the form
-import Card from './Card'
+import Card from './Card.tsx'
 // Import custom Button component for form actions
-import Button from './Button'
+import Button from './Button.tsx'
 // Import custom Input component for text input fields
-import Input from './Input'
+import Input from './Input.tsx'
 // Import custom SelectBox component for dropdown selection
-import SelectBox from './SelectBox'
+import SelectBox from './SelectBox.tsx'
 // Import custom TextArea component for multi-line text input
-import TextArea from './TextArea'
+import TextArea from './TextArea.tsx'
 
 // Define and export the CreateUpdateCrudExample component
 export default function CreateUpdateCrudExample({
   categoryOptions, // Array of category options to display in the SelectBox
-}) {
+}:any) {
   return (
     // Render the Card component as the main container
     <Card

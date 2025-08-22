@@ -3,9 +3,9 @@ import React from 'react';
 // Import Ant Design's Table, Button, and Space components
 import { Table as AntTable, Button, Space } from 'antd';
 // Import type for table columns from Ant Design
-import { ColumnsType } from 'antd/es/table';
+import type{ ColumnsType } from 'antd/es/table';
 // Import type for table props from Ant Design
-import { TableProps as AntTableProps } from 'antd';
+import  type { TableProps as AntTableProps } from 'antd';
 
 // Define types for custom actions that can be rendered in the Actions column
 interface TableAction<T> {

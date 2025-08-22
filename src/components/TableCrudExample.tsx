@@ -7,7 +7,7 @@ import Table from './Table'
 export default function TableCrudExample({
     columns,   // Array of column definitions for the table
     records    // Array of data records to display in the table
-}) {
+}:any) {
   return (
     // Render the Card component as the main container for the table
     <Card title="Records" style={{ height: 'fit-content' }}>

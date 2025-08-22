@@ -1,9 +1,7 @@
 // Import React and useState for state management in functional components
-import React, { useState } from 'react'
-// Import Ant Design's Row, Col layout components and message API
-import { Row, Col, message } from 'antd';
+import { useState } from 'react'
 // Import ColumnsType for typing table columns from Ant Design
-import { ColumnsType } from 'antd/es/table';
+import type{ ColumnsType } from 'antd/es/table';
 
 // Define and export the useCrudExample custom hook
 export default function useCrudExample() {
