@@ -22,7 +22,7 @@ No   | Tree                                                                   | 
 18   |         │                   ├── [th] {Description Column}              |     'native HTML element'                                                 |
 19   |         │                   ├── [th] {Created At Column}               |     'native HTML element'                                                 |
 20   |         │                   └── [th] {Actions Column}                  |     'native HTML element'                                                 |
-21   |         └── useCrudExample                                             |     './src/hooks/crudExample/useCrudExample.tsx'                          |
+21   |         └── useCrudExample                                             |     './src/hooks/useCrudExample.tsx'                          |
      |                                                                        |                                                                           |
 -----|------------------------------------------------------------------------|---------------------------------------------------------------------------|      
 

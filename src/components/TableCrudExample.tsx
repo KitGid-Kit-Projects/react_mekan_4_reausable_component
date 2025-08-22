@@ -1,7 +1,7 @@
 // Import custom Card component to wrap the table and content
-import Card from './Card'
+import Card from './Card.tsx'
 // Import custom Table component to display tabular data
-import Table from './Table'
+import Table from './Table.tsx'
 
 // Define and export the TabelCrudExample component
 export default function TableCrudExample({
