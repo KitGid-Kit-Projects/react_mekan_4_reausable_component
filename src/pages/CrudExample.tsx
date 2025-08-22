@@ -3,7 +3,7 @@ import { Row, Col, message } from 'antd';
 import { ColumnsType } from 'antd/es/table';
 import useCrudExample from '@/hooks/useCrudExample';
 import CreateUpdateCrudExample from '@/components/CreateUpdateCrudExample';
-import TabelCrudExample from '@/components/TabelCrudExample';
+import TableCrudExample from '@/components/TableCrudExample';
 
 /**
  * CRUD Example Component
@@ -44,7 +44,7 @@ const CrudExample: React.FC = () => {
         {/* Table Section (right column on desktop) */}
         <Col xs={24} lg={16}>
           {/* Render the table with columns and records */}
-          <TabelCrudExample 
+          <TableCrudExample 
             columns={columns}
             records={records}
           />

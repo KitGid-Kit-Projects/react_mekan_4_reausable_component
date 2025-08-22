@@ -4,7 +4,7 @@ import Card from './Card'
 import Table from './Table'
 
 // Define and export the TabelCrudExample component
-export default function TabelCrudExample({
+export default function TableCrudExample({
     columns,   // Array of column definitions for the table
     records    // Array of data records to display in the table
 }) {
