@@ -1,44 +1,60 @@
 import React from 'react';
 import { Card as AntCard } from 'antd';
-import { BaseComponentProps, ComponentChildren } from '../types/common';
-
-// Using interface for component props
-interface CardProps extends BaseComponentProps {
-  title: string;
-  children: ComponentChildren;
-  footer?: ComponentChildren;
-  hoverable?: boolean;
-  loading?: boolean;
-}
 
 /**
- * Reusable Card component built on top of Ant Design
+ * Interface defining the props for the Card component
  * 
- * @param title - Card header title
- * @param children - Card content (any React node)
- * @param footer - Optional footer content
- * @param hoverable - Enables hover effect
- * @param loading - Shows loading skeleton
+ * @property title - The title displayed in the card header (required)
+ * @property children - Main content of the card (required)
+ * @property footer - Content displayed in the footer area (optional)
+ * @property hoverable - Enables hover effect with box shadow (default: false)
+ * @property loading - Shows loading skeleton instead of content (default: false)
+ * 
+ * Inherits from BaseComponentProps:
+ * @property className - Optional CSS class for custom styling
+ * @property style - Optional inline styles
  */
-const Card: React.FC<CardProps> = ({
-  title,
-  children,
-  footer,
-  hoverable = false,
-  loading = false,
-  className,
-  style,
+
+/**
+ * Enhanced Card Component
+ * 
+ * A reusable card container built on Ant Design with:
+ * - Title section
+ * - Main content area
+ * - Optional footer
+ * - Hover effects
+ * - Loading states
+ * - Custom styling options
+ * 
+ * @param props - Configuration options for the card
+ */
+const Card: React.FC<any> = ({
+  title,          // The header title text (required)
+  children,       // Main content (required)
+  footer,         // Footer content (optional)
+  hoverable = false, // Default no hover effect
+  loading = false,   // Default not in loading state
+  className,      // Optional CSS class
+  style,          // Optional inline styles
 }) => {
   return (
+    /**
+     * Ant Design Card component with configured props
+     * 
+     * The card has three distinct sections:
+     * 1. Header (title)
+     * 2. Body (children)
+     * 3. Footer (actions)
+     */
     <AntCard
-      title={title}
-      hoverable={hoverable}
-      loading={loading}
-      className={className}
-      style={style}
-      actions={footer ? [footer] : undefined}
+      title={title}             // Sets the card header text
+      hoverable={hoverable}     // Enables/disables hover effect
+      loading={loading}         // Shows loading skeleton when true
+      className={className}     // Passes custom CSS class
+      style={style}             // Applies inline styles
+      actions={footer ? [footer] : undefined} // Footer content (wrapped in array)
     >
-      {children}
+      {children} {/* The main content area */}
     </AntCard>
   );
 };

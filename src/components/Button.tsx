@@ -1,59 +1,77 @@
 import React from 'react';
 import { Button as AntButton } from 'antd';
-import { BaseComponentProps, ButtonVariant } from '../types/common';
-
-// Using interface for component props (recommended for component props)
-interface ButtonProps extends BaseComponentProps {
-  text: string;
-  onClick?: () => void;
-  variant?: ButtonVariant;
-  loading?: boolean;
-  disabled?: boolean;
-  htmlType?: 'button' | 'submit' | 'reset';
-}
 
 /**
- * Reusable Button component built on top of Ant Design
+ * Interface defining the Button component's props
  * 
- * @param text - Button text content
- * @param onClick - Click handler function
- * @param variant - Button style variant ('primary' | 'secondary')
- * @param loading - Shows loading spinner when true
- * @param disabled - Disables the button when true
- * @param htmlType - HTML button type attribute
+ * @property text - Display text of the button (required)
+ * @property onClick - Click handler function (optional)
+ * @property variant - Visual style variant ('primary' | 'secondary')
+ * @property loading - Shows loading spinner when true (default: false)
+ * @property disabled - Makes button non-interactive when true (default: false)
+ * @property htmlType - Native button type attribute (default: 'button')
+ * 
+ * Inherits from BaseComponentProps:
+ * @property className - Optional CSS class for custom styling
+ * @property style - Optional inline styles
  */
-const Button: React.FC<ButtonProps> = ({
-  text,
-  onClick,
-  variant = 'secondary', // Default prop using destructuring
-  loading = false,
-  disabled = false,
-  htmlType = 'button',
-  className,
-  style,
+
+/**
+ * Enhanced Button Component
+ * 
+ * A reusable button built on Ant Design with:
+ * - Custom variant system
+ * - Loading states
+ * - Type-safe props
+ * - HTML button type support
+ * - Accessibility built-in
+ * 
+ * @param props - Configuration options for the button
+ */
+const Button: React.FC<any> = ({
+  text,          // The button's display text
+  onClick,       // Click handler function
+  variant = 'secondary', // Default to secondary style
+  loading = false, // Default not loading
+  disabled = false, // Default enabled
+  htmlType = 'button', // Default HTML button type
+  className,     // Optional CSS class
+  style,         // Optional inline styles
 }) => {
-  // Map our custom variants to Ant Design button types
+  /**
+   * Maps our custom variant names to Ant Design's button types
+   * @returns Ant Design's button type string
+   */
   const getButtonType = (): 'primary' | 'default' => {
     switch (variant) {
       case 'primary':
-        return 'primary';
+        return 'primary'; // Ant Design's primary style
       case 'secondary':
       default:
-        return 'default';
+        return 'default'; // Ant Design's default style
     }
   };
 
   return (
+    /**
+     * Ant Design Button component with configured props
+     * 
+     * Features:
+     * - Automatic accessibility attributes
+     * - Built-in hover/focus states
+     * - Loading spinner integration
+     * - Proper button semantics
+     */
     <AntButton
-      type={getButtonType()}
-      onClick={onClick}
-      loading={loading}
-      disabled={disabled}
-      htmlType={htmlType}
-      className={className}
-      style={style}
+      type={getButtonType()}    // Visual style type
+      onClick={onClick}         // Click handler
+      loading={loading}         // Loading state
+      disabled={disabled}       // Disabled state
+      htmlType={htmlType}       // Native button type
+      className={className}     // Custom CSS class
+      style={style}             // Inline styles
     >
-      {text}
+      {text} {/* The visible button text */}
     </AntButton>
   );
 };
