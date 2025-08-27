@@ -2,7 +2,7 @@ import React from 'react'
 import Card from './Card'
 import Table from './Table'
 
-export default function TabelCrudExample({
+export default function TableCrudExample({
     columns,
     records,
     handleEdit,

@@ -5,7 +5,7 @@ import { Button, Card, Input, SelectBox, TextArea, Table } from '../components';
 import { CrudRecord, SelectOption } from '../types/common';
 import useCrudExample from '@/hooks/useCrudExample';
 import CreateUpdateCrudExample from '@/components/CreateUpdateCrudExample';
-import TabelCrudExample from '@/components/TabelCrudExample';
+import TabelCrudExample from '@/components/TableCrudExample';
 
 /**
  * CRUD Example Component
