@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Row, Col, message } from 'antd';
 import { ColumnsType } from 'antd/es/table';
-import { Button, Card, Input, SelectBox, TextArea, Table } from '../components';
+import { Button, Card, Input, SelectBox, TextArea, Table } from '../components/Index';
 import { CrudRecord, SelectOption } from '../types/common';
 import useCrudExample from '@/hooks/useCrudExample';
 import CreateUpdateCrudExample from '@/components/CreateUpdateCrudExample';

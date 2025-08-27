@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Row, Col, message } from 'antd';
 import { ColumnsType } from 'antd/es/table';
-import { CrudRecord, SelectOption } from '@/components';
+import { CrudRecord, SelectOption } from '@/components/Index';
 export default function useCrudExample() {
   const [formData, setFormData] = useState({
     name: '',
