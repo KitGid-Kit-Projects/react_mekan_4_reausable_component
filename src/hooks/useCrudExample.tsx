@@ -1,42 +1,22 @@
 import React, { useState } from 'react'
-import { Row, Col, message } from 'antd';
+import { message } from 'antd';
 import { ColumnsType } from 'antd/es/table';
-import { CrudRecord, SelectOption } from '@/components';
+
 export default function useCrudExample() {
+
+
   const [formData, setFormData] = useState({
     name: '',
     category: '',
     description: '',
   });
 
-  // Data storage (simulating a database)
-  const [records, setRecords] = useState<CrudRecord[]>([]);
-  const [editingRecord, setEditingRecord] = useState<CrudRecord | null>(null);
 
-
-  // Category options for the select dropdown
-  const categoryOptions: SelectOption[] = [
-    { label: 'Technology', value: 'technology' },
-    { label: 'Education', value: 'education' },
-    { label: 'Health', value: 'health' },
-    { label: 'Finance', value: 'finance' },
-    { label: 'Entertainment', value: 'entertainment' },
-  ];
-
-  /**
-   * Handles input changes for form fields
-   * @param field - The field name to update
-   * @returns Change event handler
-   */
-  const handleInputChange = (field: string) => 
+  const handleInputChange = (field: string) =>
     (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
       setFormData(prev => ({ ...prev, [field]: e.target.value }));
     };
 
-  /**
-   * Handles select dropdown changes
-   * @param value - The selected value
-   */
   const handleSelectChange = (value: string) => {
     setFormData(prev => ({ ...prev, category: value }));
   };
@@ -55,36 +35,9 @@ export default function useCrudExample() {
       return;
     }
 
-
-
     try {
-      // Simulate API call delay
-
-      if (editingRecord) {
-        // Update existing record
-        // setRecords(prev =>
-        //   prev.map(record =>
-        //     record.id === editingRecord.id
-        //       ? { ...record, ...formData }
-        //       : record
-        //   )
-        // );
-        message.success('Record updated successfully!');
-        setEditingRecord(null);
-      } else {
-        // Create new record
-        // const newRecord: CrudRecord = {
-        //   id: Date.now().toString(),
-        //   ...formData,
-        //   createdAt: new Date(),
-        // };
-        // setRecords(prev => [...prev, newRecord]);
-        console.log(formData);
-        
-        message.success('Record created successfully!');
-      }
-
-      // Reset form
+      console.log(formData);
+      message.success('Record created successfully!');
       setFormData({ name: '', category: '', description: '' });
     } catch (error) {
       message.error('An error occurred. Please try again.');
@@ -93,10 +46,20 @@ export default function useCrudExample() {
     }
   };
 
-  
+  const [records, setRecords] = useState<any[]>([]);
+
+
+  // Category options for the select dropdown
+  const categoryOptions: any[] = [
+    { label: 'Technology', value: 'technology' },
+    { label: 'Education', value: 'education' },
+    { label: 'Health', value: 'health' },
+    { label: 'Finance', value: 'finance' },
+    { label: 'Entertainment', value: 'entertainment' },
+  ];
 
   // Table column configuration
-  const columns: ColumnsType<CrudRecord> = [
+  const columns: ColumnsType<any> = [
     {
       title: 'Name',
       dataIndex: 'name',
@@ -125,7 +88,7 @@ export default function useCrudExample() {
     },
   ];
   return {
-    formData, 
+    formData,
     categoryOptions,
     handleInputChange,
     handleSelectChange,
