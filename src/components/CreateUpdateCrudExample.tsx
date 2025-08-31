@@ -11,7 +11,6 @@ export default function CreateUpdateCrudExample({
   handleInputChange,
   handleSelectChange,
   handleSubmit,
-  handleCancelEdit,
   isSubmitting,
   editingRecord
 }) {
@@ -20,13 +19,7 @@ export default function CreateUpdateCrudExample({
     title={editingRecord ? 'Edit Record' : 'Create New Record'}
     footer={
       <div style={{ display: 'flex', gap: '8px', justifyContent: 'flex-end' }}>
-        {editingRecord && (
-          <Button
-            text="Cancel"
-            onClick={handleCancelEdit}
-            variant="secondary"
-          />
-        )}
+        
         <Button
           text={editingRecord ? 'Update' : 'Create'}
           onClick={handleSubmit}

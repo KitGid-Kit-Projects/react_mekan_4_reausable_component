@@ -21,19 +21,17 @@ import TabelCrudExample from '@/components/TabelCrudExample';
  */
 const CrudExample: React.FC = () => {
   // Form state management
-const {
-  formData, setFormData,
-  categoryOptions,
-  handleInputChange,
-  handleSelectChange,
-  handleSubmit,
-  handleDelete,
-  handleCancelEdit,
-  columns,
-  records,
-  editingRecord, setEditingRecord,
-  isSubmitting, setIsSubmitting
-}=useCrudExample()
+  const {
+    formData, setFormData,
+    categoryOptions,
+    handleInputChange,
+    handleSelectChange,
+    handleSubmit,
+    columns,
+    records,
+    editingRecord, setEditingRecord,
+    isSubmitting, setIsSubmitting
+  } = useCrudExample()
 
   return (
     <div style={{ padding: '24px', maxWidth: '1200px', margin: '0 auto' }}>
@@ -42,23 +40,21 @@ const {
         {/* Form Section (left column on desktop) */}
         <Col xs={24} lg={8}>
           <CreateUpdateCrudExample
-           formData={formData}
-           categoryOptions={categoryOptions}
-           handleInputChange={handleInputChange}
-           handleSelectChange={handleSelectChange}
-           handleSubmit={handleSubmit}
-           handleCancelEdit={handleCancelEdit}
-           isSubmitting={isSubmitting}
-           editingRecord={editingRecord}
+            formData={formData}
+            handleInputChange={handleInputChange}
+            handleSelectChange={handleSelectChange}
+            handleSubmit={handleSubmit}
+            isSubmitting={isSubmitting}
+            editingRecord={editingRecord}
+            categoryOptions={categoryOptions}
           />
         </Col>
 
         {/* Table Section (right column on desktop) */}
         <Col xs={24} lg={16}>
-          <TabelCrudExample 
-              columns={columns}
-              records={records}
-              handleDelete={handleDelete}
+          <TabelCrudExample
+            columns={columns}
+            records={records}
           />
         </Col>
       </Row>

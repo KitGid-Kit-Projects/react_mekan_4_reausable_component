@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { Row, Col, message } from 'antd';
-import { ColumnsType } from 'antd/es/table';
-import { CrudRecord, SelectOption } from '@/components';
+import { ColumnsType } from 'antd/es/table'; 
+
+
 export default function useCrudExample() {
+
   const [formData, setFormData] = useState({
     name: '',
     category: '',
@@ -10,18 +12,11 @@ export default function useCrudExample() {
   });
 
   // Data storage (simulating a database)
-  const [records, setRecords] = useState<CrudRecord[]>([]);
-  const [editingRecord, setEditingRecord] = useState<CrudRecord | null>(null);
+  const [records, setRecords] = useState<any[]>([]);
+  const [editingRecord, setEditingRecord] = useState<any | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Category options for the select dropdown
-  const categoryOptions: SelectOption[] = [
-    { label: 'Technology', value: 'technology' },
-    { label: 'Education', value: 'education' },
-    { label: 'Health', value: 'health' },
-    { label: 'Finance', value: 'finance' },
-    { label: 'Entertainment', value: 'entertainment' },
-  ];
+
 
   /**
    * Handles input changes for form fields
@@ -62,7 +57,7 @@ export default function useCrudExample() {
       await new Promise(resolve => setTimeout(resolve, 500));
 
         // Create new record
-        const newRecord: CrudRecord = {
+        const newRecord: any = {
           id: Date.now().toString(),
           ...formData,
           createdAt: new Date(),
@@ -89,28 +84,20 @@ export default function useCrudExample() {
    * Deletes a record from the data
    * @param record - The record to delete
    */
-  const handleDelete = (record: CrudRecord) => {
-    setRecords(prev => prev.filter(r => r.id !== record.id));
-    message.success('Record deleted successfully!');
-    
-    // Clear edit state if deleting the record being edited
-    if (editingRecord?.id === record.id) {
-      setEditingRecord(null);
-      setFormData({ name: '', category: '', description: '' });
-    }
-  };
+ 
+ 
 
-  /**
-   * Cancels the current edit operation
-   */
-  const handleCancelEdit = () => {
-    setEditingRecord(null);
-    setFormData({ name: '', category: '', description: '' });
-    message.info('Edit cancelled');
-  };
+    // Category options for the select dropdown
+  const categoryOptions: any[] = [
+    { label: 'Technology', value: 'technology' },
+    { label: 'Education', value: 'education' },
+    { label: 'Health', value: 'health' },
+    { label: 'Finance', value: 'finance' },
+    { label: 'Entertainment', value: 'entertainment' },
+  ];
 
   // Table column configuration
-  const columns: ColumnsType<CrudRecord> = [
+  const columns: ColumnsType<any> = [
     {
       title: 'Name',
       dataIndex: 'name',
@@ -144,8 +131,6 @@ export default function useCrudExample() {
     handleInputChange,
     handleSelectChange,
     handleSubmit,
-    handleDelete,
-    handleCancelEdit,
     columns,
     records,
     editingRecord, setEditingRecord,
