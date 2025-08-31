@@ -1,9 +1,9 @@
 
-import Card from './Card'
-import Button from './Button'
-import Input from './Input'
-import SelectBox from './SelectBox'
-import TextArea from './TextArea'
+import Card from './Card.tsx'
+import Button from './Button.tsx'
+import Input from './Input.tsx'
+import SelectBox from './SelectBox.tsx'
+import TextArea from './TextArea.tsx'
 
 export default function CreateUpdateCrudExample({
   formData,

@@ -2,31 +2,31 @@
 
 No   | Tree                                                                   | Code Lines|     Path                                                                  |
 -----+------------------------------------------------------------------------+-----------+---------------------------------------------------------------------------|
-01   | App.tsx                                                                |   54      |     './src/App.tsx'                                                       |
+01   | App.tsx                                                                |   41      |     './src/App.tsx'                                                       |
 02   | └── [ConfigProvider]                                                   |           |     'antd'                                                                | 
-03   |     └── CrudExample                                                    |   54      |     './src/pages/CrudExample.tsx'                                         |
+03   |     └── CrudExample                                                    |   35      |     './src/pages/CrudExample.tsx'                                         |
 04   |         ├── [Row] {Layout Container}                                   |           |     'antd'                                                                |
 05   |         │   ├── [Col] {Form Column}                                    |           |     'antd'                                                                |
-06   |         │   │   └── CreateUpdateCrudExample                            |   49      |     './src/components/CreateUpdateCrudExample.tsx'                        |
-07   |         │   │       └── Card {Form Card Container}                     |   56      |     './src/components/Card.tsx'                                           |
+06   |         │   │   └── CreateUpdateCrudExample                            |   47      |     './src/components/CreateUpdateCrudExample.tsx'                        |
+07   |         │   │       └── Card {Form Card Container}                     |   25      |     './src/components/Card.tsx'                                           |
 08   |         │   │           ├──<props> BaseComponentProps                  |           |     './src/types/common.ts'                                               |
 09   |         │   │           ├──<props> ComponentChildren                   |           |     './src/types/common.ts'                                               |
-10   |         │   │           ├── Input {Product Name Field}                 |   46      |     './src/components/Input.tsx'                                          |
+10   |         │   │           ├── Input {Product Name Field}                 |   29      |     './src/components/Input.tsx'                                          |
 11   |         │   │           │   └──<props> BaseComponentProps              |           |     './src/types/common.ts'                                               |
-12   |         │   │           ├── SelectBox {Category Dropdown}              |   54      |     './src/components/SelectBox.tsx'                                      |
+12   |         │   │           ├── SelectBox {Category Dropdown}              |   36      |     './src/components/SelectBox.tsx'                                      |
 13   |         │   │           │   ├──<props> BaseComponentProps              |           |     './src/types/common.ts'                                               |
 14   |         │   │           │   └──<props> SelectOption                    |           |     './src/types/common.ts'                                               |
-15   |         │   │           ├── TextArea {Product Description Field}       |   54      |     './src/components/TextArea.tsx'                                       |
+15   |         │   │           ├── TextArea {Product Description Field}       |   40      |     './src/components/TextArea.tsx'                                       |
 16   |         │   │           │   └──<props> BaseComponentProps              |           |     './src/types/common.ts'                                               |
-17   |         │   │           └── Button {Create/Update Button}              |   61      |     './src/components/Button.tsx'                                         |
+17   |         │   │           └── Button {Create/Update Button}              |   34      |     './src/components/Button.tsx'                                         |
 18   |         │   │               ├──<props> BaseComponentProps              |           |     './src/types/common.ts'                                               |
 19   |         │   │               └──<props> ButtonVariant                   |           |     './src/types/common.ts'                                               |
 20   |         │   └── [Col] {Table Column}                                   |           |     'antd'                                                                |
-21   |         │       └── TabelCrudExample                                   |   32      |     './src/components/TabelCrudExample.tsx'                               |
-22   |         │           └── Card {Table Card Container}                    |   56      |     './src/components/Card.tsx'                                           |
+21   |         │       └── TabelCrudExample                                   |   24      |     './src/components/TabelCrudExample.tsx'                               |
+22   |         │           └── Card {Table Card Container}                    |   25      |     './src/components/Card.tsx'                                           |
 23   |         │               ├──<props> BaseComponentProps                  |           |     './src/types/common.ts'                                               |
 24   |         │               ├──<props> ComponentChildren                   |           |     './src/types/common.ts'                                               |
-25   |         │               └── Table {CRUD Data Table}                    |   98      |     './src/components/Table.tsx'                                          |
+25   |         │               └── Table {CRUD Data Table}                    |   78      |     './src/components/Table.tsx'                                          |
 26   |         │                   ├──<props> BaseComponentProps              |           |     './src/types/common.ts'                                               |
 27   |         │                   ├── [th] {Name Column}                     |           |     'native HTML element'                                                 |
 28   |         │                   ├── [th] {Category Column}                 |           |     'native HTML element'                                                 |
@@ -35,13 +35,13 @@ No   | Tree                                                                   | 
 31   |         │                   └── [th] {Actions Column}                  |           |     'native HTML element'                                                 |
 32   |         │                       └── [Space]                            |           |     'antd'                                                                |
 33   |         │                             └── [AntButton] {Delete Record}  |           |     'antd'                                                                |
-34   |         └── useCrudExample                                             |   54      |     './src/hooks/crudExample/useCrudExample.tsx'                          |
+34   |         └── useCrudExample                                             |   45      |     './src/hooks/crudExample/useCrudExample.tsx'                          |
 35   |             ├──<props> SelectOption                                    |           |     './src/types/common.ts'                                               |
 36   |             ├──<props> CrudRecord                                      |           |     './src/types/common.ts'                                               |
 37   |             └──<props> FormData                                        |           |     './src/types/common.ts'                                               |
      |                                                                        |           |                                                                           |
 -----|------------------------------------------------------------------------+-----------+---------------------------------------------------------------------------|
-     |                                                       TOTAL CODE LINES |   558     |                                                                           |
+     |                                                       TOTAL CODE LINES |   409     |                                                                           |
 -----|------------------------------------------------------------------------+-----------+---------------------------------------------------------------------------|
 
 ## Legend

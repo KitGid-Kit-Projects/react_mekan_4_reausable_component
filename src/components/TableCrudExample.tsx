@@ -1,8 +1,8 @@
 import React from 'react'
-import Card from './Card'
-import Table from './Table'
+import Card from './Card.tsx'
+import Table from './Table.tsx'
 
-export default function TabelCrudExample({
+export default function TableCrudExample({
     columns,
     records,
     
