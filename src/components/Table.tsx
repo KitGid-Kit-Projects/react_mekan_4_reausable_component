@@ -16,16 +16,16 @@ import { ColumnsType } from 'antd/es/table';
  * @param onDelete - Delete handler function
  */
 function Table<T extends Record<string, any>>({
-  columns,
-  data,
-  loading = false,
-  pagination = true,
-  size = 'middle',
-  actions,
-  onEdit,
-  onDelete,
-  className,
-  style,
+  columns, /* column definitions */
+  data, /* array of rows */
+  loading = false, /* show loading state */
+  pagination = true, /* enable pagination */
+  size = 'middle', /* table size */
+  actions, /* custom row actions */
+  onEdit, /* row edit handler */
+  onDelete, /* row delete handler */
+  className, /* optional className */
+  style, /* optional style */
 }: any) {
   // Create action column if edit/delete handlers or custom actions are provided
   const actionColumn: ColumnsType<T>[0] | null = (onEdit || onDelete || actions) ? {
@@ -38,7 +38,7 @@ function Table<T extends Record<string, any>>({
           <AntButton 
             type="primary" 
             size="small" 
-            onClick={() => onEdit(record)}
+            onClick={() => onEdit(record)} /* call edit handler with row record */
           >
             Edit
           </AntButton>
@@ -48,7 +48,7 @@ function Table<T extends Record<string, any>>({
             type="primary" 
             danger 
             size="small" 
-            onClick={() => onDelete(record)}
+            onClick={() => onDelete(record)} /* call delete handler with row record */
           >
             Delete
           </AntButton>
@@ -59,28 +59,28 @@ function Table<T extends Record<string, any>>({
             type={action.type || 'default'}
             danger={action.danger}
             size="small"
-            onClick={() => action.onClick(record)}
+            onClick={() => action.onClick(record)} /* custom action click */
           >
             {action.label}
           </AntButton>
         ))}
       </Space>
     ),
-  } : null;
+  } : null; /* actionColumn: optional actions column appended to end */
 
   // Combine columns with action column
-  const finalColumns = actionColumn ? [...columns, actionColumn] : columns;
+  const finalColumns = actionColumn ? [...columns, actionColumn] : columns; /* finalColumns: base columns plus actions if present */
 
   return (
     <AntTable
-      columns={finalColumns}
-      dataSource={data}
-      loading={loading}
-      pagination={pagination ? { pageSize: 10, showSizeChanger: true } : false}
-      size={size}
-      className={className}
-      style={style}
-      rowKey={(record) => record.id || Math.random().toString()}
+      columns={finalColumns} /* columns to render */
+      dataSource={data} /* table data */
+      loading={loading} /* loading indicator */
+      pagination={pagination ? { pageSize: 10, showSizeChanger: true } : false} /* pagination config or false */
+      size={size} /* table density */
+      className={className} /* optional styling class */
+      style={style} /* optional inline style */
+      rowKey={(record) => record.id || Math.random().toString()} /* unique row key */
     />
   );
 }

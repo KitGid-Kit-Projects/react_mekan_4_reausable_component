@@ -22,15 +22,15 @@ import TabelCrudExample from '../components/TableCrudExample.tsx';
 const CrudExample: React.FC = () => {
   // Form state management
   const {
-    formData, setFormData,
-    categoryOptions,
-    handleInputChange,
-    handleSelectChange,
-    handleSubmit,
-    columns,
-    records,
-    editingRecord, setEditingRecord,
-    isSubmitting, setIsSubmitting
+    formData /* current form values object */, setFormData /* setter to update formData */,
+    categoryOptions /* select options for category field */,
+    handleInputChange /* callback to update text inputs */,
+    handleSelectChange /* callback to update select inputs */,
+    handleSubmit /* called to create/update a record */,
+    columns /* column definitions for table */,
+    records /* array of data rows to display */,
+    editingRecord /* current record object when editing */, setEditingRecord /* setter to change editingRecord */,
+    isSubmitting /* disables UI while submitting */, setIsSubmitting /* setter for isSubmitting */
   } = useCrudExample()
 
   return (
@@ -40,21 +40,21 @@ const CrudExample: React.FC = () => {
         {/* Form Section (left column on desktop) */}
         <Col xs={24} lg={8}>
           <CreateUpdateCrudExample
-            formData={formData}
-            handleInputChange={handleInputChange}
-            handleSelectChange={handleSelectChange}
-            handleSubmit={handleSubmit}
-            isSubmitting={isSubmitting}
-            editingRecord={editingRecord}
-            categoryOptions={categoryOptions}
+            formData={formData} /* current form values object */
+            handleInputChange={handleInputChange} /* callback to update text inputs */
+            handleSelectChange={handleSelectChange} /* callback to update select inputs */
+            handleSubmit={handleSubmit} /* called to create/update a record */
+            isSubmitting={isSubmitting} /* disables UI while submitting */
+            editingRecord={editingRecord} /* current record object when editing */
+            categoryOptions={categoryOptions} /* select options for category field */
           />
         </Col>
 
         {/* Table Section (right column on desktop) */}
         <Col xs={24} lg={16}>
           <TabelCrudExample
-            columns={columns}
-            records={records}
+            columns={columns} /* column definitions for table */
+            records={records} /* array of data rows to display */
           />
         </Col>
       </Row>

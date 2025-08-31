@@ -2,18 +2,20 @@ import React from 'react'
 import Card from './Card.tsx'
 import Table from './Table.tsx'
 
+// Component: TableCrudExample
+// Renders a Card-wrapped Table and optional empty state
 export default function TableCrudExample({
-    columns,
-    records,
+  columns, /* column definitions passed from hook/page */
+  records, /* array of data rows */
     
 }) {
   return (
     <Card title="Records" style={{ height: 'fit-content' }}>
     <Table
-      columns={columns}
-      data={records}
-      pagination={records.length > 10}
-      size="middle"
+    columns={columns} /* columns: defines table columns */
+    data={records} /* data: rows to display */
+    pagination={records.length > 10} /* enable pagination when more than 10 rows */
+    size="middle" /* table size */
     />
     {/* Empty state message */}
     {records.length === 0 && (
