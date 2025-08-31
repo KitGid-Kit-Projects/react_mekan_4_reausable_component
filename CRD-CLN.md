@@ -17,7 +17,7 @@ No   | Tree                                                                   | 
 11   |         │   │           └── Button {Create/Update Button}              |                   | 34                | 36                |     './src/components/Button.tsx'                                         |
 12   |         │   └── [Col] {Table Column}                                   |                   |                   |                   |     'antd'                                                                |
 13   |         │       └── TableCrudExample                                   | 24                | 24                | 24                |     './src/components/TableCrudExample.tsx'                               |
-14   |         │           └── Card {Table Card Container}                    | 25                | 25                | 25                  |     './src/components/Card.tsx'                                           |
+14   |         │           └── Card {Table Card Container}                    | 25                | 25                | 25                |     './src/components/Card.tsx'                                           |
 15   |         │               └── Table {CRUD Data Table}                    | 78                | 78                | 69                |     './src/components/Table.tsx'                                          |
 16   |         │                   ├── [th] {Name Column}                     |                   |                   |                   |     'native HTML element'                                                 |
 17   |         │                   ├── [th] {Category Column}                 |                   |                   |                   |     'native HTML element'                                                 |
@@ -26,7 +26,7 @@ No   | Tree                                                                   | 
 21   |         └── useCrudExample                                             | 45                | 45                | 84                |     './src/hooks/useCrudExample.tsx'                                      |
      |                                                                        |                   |                   |                   |                                                                           |
 -----+------------------------------------------------------------------------+-------------------+-------------------+-------------------+---------------------------------------------------------------------------|
-     |                                                       TOTAL CODE LINES | 243               | 409               | 509               |                                                                           |
+     |                                                       TOTAL CODE LINES | 243               | 409               | 479               |                                                                           |
 -----+------------------------------------------------------------------------+-------------------+-------------------+-------------------+---------------------------------------------------------------------------|
 
    

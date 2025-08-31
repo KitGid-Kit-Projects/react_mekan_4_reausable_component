@@ -21,7 +21,7 @@ No   | Tree                                                                   | 
 17   |         │                   ├── [th] {Category Column}                 |           |     'native HTML element'                                                 |
 18   |         │                   ├── [th] {Description Column}              |           |     'native HTML element'                                                 |
 19   |         │                   ├── [th] {Created At Column}               |           |     'native HTML element'                                                 |
-20   |         └── useCrudExample                                             |   84      |     './src/hooks/useCrudExample.tsx'                                       |
+20   |         └── useCrudExample                                             |   84      |     './src/hooks/useCrudExample.tsx'                                      |
      |                                                                        |           |                                                                           |
 -----|------------------------------------------------------------------------+-----------+---------------------------------------------------------------------------|
      |                                                       TOTAL CODE LINES |   509     |                                                                           |
