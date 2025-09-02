@@ -15,7 +15,7 @@ import { Button as AntButton } from 'antd';
  */
 const Button: React.FC<any> = ({
   text,          // The button's display text
-  onClick,       // Click handler function
+  handleSubmit,       // Click handler function
   variant = 'secondary', // Default to secondary style
   loading = false, // Default not loading
   disabled = false, // Default enabled
@@ -49,7 +49,7 @@ const Button: React.FC<any> = ({
      */
     <AntButton
       type={getButtonType()}    // Visual style type
-      onClick={onClick}         // Click handler
+      onClick={handleSubmit}         // Click handler
       loading={loading}         // Loading state
       disabled={disabled}       // Disabled state
       htmlType={htmlType}       // Native button type

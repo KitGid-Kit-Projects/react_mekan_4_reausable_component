@@ -25,7 +25,7 @@ const Input: React.FC<any> = ({
   label,
   placeholder,
   value,
-  onChange,
+  handleInputChange,
   required = false,    // Default value if not provided
   disabled = false,    // Default value if not provided
   type = 'text',       // Default value if not provided
@@ -46,7 +46,7 @@ const Input: React.FC<any> = ({
       <AntInput
         placeholder={placeholder}  // Placeholder text
         value={value}              // Controlled value
-        onChange={onChange}        // Change handler
+        onChange={handleInputChange}        // Change handler
         disabled={disabled}       // Disabled state
         type={type}               // Input type
         // Note: AntInput automatically handles accessibility attributes

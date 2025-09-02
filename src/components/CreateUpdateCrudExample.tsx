@@ -22,7 +22,7 @@ export default function CreateUpdateCrudExample({
         
         <Button
           text={editingRecord ? 'Update' : 'Create'}
-          onClick={handleSubmit}
+          handleSubmit={handleSubmit}
           variant="primary"
           loading={isSubmitting}
         />
@@ -34,7 +34,7 @@ export default function CreateUpdateCrudExample({
         label="Name"
         placeholder="Enter name"
         value={formData.name}
-        onChange={handleInputChange('name')}
+        handleInputChange={handleInputChange('name')}
         required
       />
 
@@ -42,7 +42,7 @@ export default function CreateUpdateCrudExample({
         label="Category"
         options={categoryOptions}
         value={formData.category}
-        onChange={handleSelectChange}
+        handleSelectChange={handleSelectChange}
         placeholder="Select a category"
         required
       />
@@ -51,7 +51,7 @@ export default function CreateUpdateCrudExample({
         label="Description"
         placeholder="Enter description"
         value={formData.description}
-        onChange={handleInputChange('description')}
+        handleInputChange={handleInputChange('description')}
         rows={4}
         maxLength={500}
         showCount
