@@ -1,6 +1,6 @@
 import React from 'react';
 import { Table as AntTable, Button as AntButton, Space } from 'antd';
-import { ColumnsType } from 'antd/es/table';
+import type { ColumnsType } from 'antd/es/table';
 
 /**
  * Reusable Table component built on top of Ant Design

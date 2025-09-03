@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { message } from 'antd';
-import { ColumnsType } from 'antd/es/table';
+import type { ColumnsType } from 'antd/es/table';
 
 
 export default function useCrudExample() {
