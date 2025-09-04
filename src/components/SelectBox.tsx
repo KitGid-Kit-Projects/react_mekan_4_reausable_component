@@ -17,7 +17,7 @@ const SelectBox: React.FC<any> = ({
   label,          // The text label shown above the select
   options,        // Array of {label, value} objects for dropdown
   value,          // Currently selected value (controlled)
-  onChange,       // Handler when selection changes (receives new value)
+  handleSelectChange,       // Handler when selection changes (receives new value)
   placeholder = 'Please select...', // Default placeholder text
   required = false, // Default to not show required indicator
   disabled = false, // Default to enabled state
@@ -48,7 +48,7 @@ const SelectBox: React.FC<any> = ({
         
         // Handler called when selection changes
         // Receives the new value string
-        onChange={onChange} // - Callback function called when user selects option, passes selected value to parent
+        onChange={handleSelectChange} // - Callback function called when user selects option, passes selected value to parent
         
         // Placeholder text when nothing is selected
         placeholder={placeholder} // - Hint text displayed when no option is selected to guide user

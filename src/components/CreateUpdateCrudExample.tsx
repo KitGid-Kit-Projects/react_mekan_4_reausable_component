@@ -14,7 +14,7 @@ export default function CreateUpdateCrudExample({
   handleCancelEdit, // - Function to cancel edit mode and clear form
   isSubmitting, // - Boolean loading state to show submission progress
   editingRecord // - Current record being edited (null for create mode)
-}) { // - Form component that handles both create and update operations based on editingRecord state
+}:any) { // - Form component that handles both create and update operations based on editingRecord state
   return (
     <Card
     title={editingRecord ? 'Edit Record' : 'Create New Record'} // - Dynamic title based on form mode (edit vs create)
@@ -41,7 +41,7 @@ export default function CreateUpdateCrudExample({
         label="Name" // - Field label for accessibility and user guidance
         placeholder="Enter name" // - Hint text to guide user input
         value={formData.name} // - Controlled input value from form state
-        onChange={handleInputChange('name')} // - Handler for name field changes using curried function
+        handleInputChange={handleInputChange('name')} // - Handler for name field changes using curried function
         required // - Mark field as required with red asterisk indicator
       />  
 
@@ -49,7 +49,7 @@ export default function CreateUpdateCrudExample({
         label="Category" // - Field label for dropdown selection
         options={categoryOptions} // - Array of selectable category options
         value={formData.category} // - Currently selected category value
-        onChange={handleSelectChange} // - Handler for category selection changes
+        handleSelectChange={handleSelectChange} // - Handler for category selection changes
         placeholder="Select a category" // - Hint text when no option is selected
         required // - Mark field as required with red asterisk indicator
       />  
@@ -58,7 +58,7 @@ export default function CreateUpdateCrudExample({
         label="Description" // - Field label for multi-line text input
         placeholder="Enter description" // - Hint text to guide user input
         value={formData.description} // - Controlled textarea value from form state
-        onChange={handleInputChange('description')} // - Handler for description field changes
+        handleInputChange={handleInputChange('description')} // - Handler for description field changes
         rows={4} // - Set textarea height to 4 visible rows
         maxLength={500} // - Limit description to 500 characters
         showCount // - Display character counter for user feedback

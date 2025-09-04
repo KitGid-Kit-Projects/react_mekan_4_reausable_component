@@ -21,7 +21,7 @@ const TextArea: React.FC<any> = ({
   label,          // The text label shown above the textarea
   placeholder,    // Hint text when empty
   value,          // Current text content
-  onChange,       // Handler for text changes
+  handleInputChange,       // Handler for text changes
   required = false, // Default to not show required indicator
   disabled = false, // Default to enabled state
   rows = 4,       // Default visible rows
@@ -56,7 +56,7 @@ const TextArea: React.FC<any> = ({
         
         // Handler called on text changes
         // Receives the React change event
-        onChange={onChange} // - Callback function called on every keystroke, passes event to parent handler
+        onChange={handleInputChange} // - Callback function called on every keystroke, passes event to parent handler
         
         // Disables interaction when true
         disabled={disabled} // - Controls whether user can interact with textarea (useful for read-only states)

@@ -34,37 +34,40 @@
 | 30 |         │   │           │   ├──<props> value: @ -> formData.description                     |            |                                                                       |
 | 31 |         │   │           │   ├──<props> handleInputChange:@-> handleInputChange              |            |                                                                       |
 | 32 |         │   │           │   └──<event> onChange:handleInputChange                           |            |                                                                       |
-| 33 |         │   │           └── Button {Create/Update Button}                                   | 32         | './src/components/Button.tsx'                                         |
-| 34 |         │   │               ├──<props> handleSubmit:@-> handleSubmit                        |            |                                                                       |
-| 35 |         │   │               └──<event> onClick:handleSubmit                                 |            |                                                                       |
-| 36 |         │   └── [Col] {Table Column}                                                        |            | 'antd'                                                                |
-| 37 |         │       └── TableCrudExample                                                        | 27         | './src/components/TableCrudExample.tsx'                               |
-| 38 |         │           ├──<props> records:@ -> records                                         |            |                                                                       |
-| 39 |         │           ├──<props> handleEdit: @-> handleEdit                                   |            |                                                                       |
-| 40 |         │           ├──<props> handleDelete: @-> handleDelete                               |            |                                                                       |
-| 41 |         │           └── Card {Table Card Container}                                         | 25         | './src/components/Card.tsx'                                           |
-| 42 |         │               └── Table {CRUD Data Table}                                         | 69         | './src/components/Table.tsx'                                          |
-| 43 |         │                   ├──<props> data: @ -> records                                   |            |                                                                       |
-| 44 |         │                   ├── [th] {Name Column}                                          |            | 'native HTML element'                                                 |
-| 45 |         │                   ├── [th] {Category Column}                                      |            | 'native HTML element'                                                 |
-| 46 |         │                   ├── [th] {Description Column}                                   |            | 'native HTML element'                                                 |
-| 47 |         │                   ├── [th] {Created At Column}                                    |            | 'native HTML element'                                                 |
-| 48 |         │                   └── [th] {Action Column}                                        |            | 'native HTML element'                                                 |
-| 49 |         │                            ├── [AntButton] {Edit Button}                          |            | 'antd'                                                                |
-| 50 |         │                            │    ├──<props> handleEdit:@-> handleEdit              |            |                                                                       |
-| 51 |         │                            │    └──<event> onClick:handleEdit                     |            |                                                                       |
-| 52 |         │                            └── [AntButton] {Delete Button}                        |            | 'antd'                                                                |
-| 53 |         │                                 ├──<props> handleDelete:@-> handleDelete          |            |                                                                       |
-| 54 |         │                                 └──<event> onClick:handleDelete                   |            |                                                                       |
-| 55 |         └── useCrudExample                                                                  | 129        | './src/hooks/useCrudExample.tsx'                                      |
-| 56 |             ├──<data-storage> formData                                                      |            |                                                                       |
-| 57 |             ├──<data-storage> records                                                       |            |                                                                       |
-| 58 |             ├──<setter> formData:handleInputChange                                          |            |                                                                       |
-| 59 |             ├──<setter> formData:handleSelectChange                                         |            |                                                                       |
-| 60 |             ├──<setter> records:handleSubmit                                                |            |                                                                       |
-| 61 |             ├──<setter> records:handleEdit                                                  |            |                                                                       |
-| 62 |             ├──<setter> records:handleDelete                                                |            |                                                                       |
-| 63 |             └──<setter> editingRecord:handleCancelEdit                                      |            |                                                                       |
+| 33 |         │   │           ├── Button {Cancel Edit Button}                                     | 32         | './src/components/Button.tsx'                                         |
+| 34 |         │   │           |   ├──<props> handleCancelEdit:@-> handleCancelEdit                |            |                                                                       |
+| 35 |         │   │           |   └──<event> onClick:handleCancelEdit                             |            |                                                                       |
+| 36 |         │   │           └── Button {Create/Update Button}                                   | 32         | './src/components/Button.tsx'                                         |
+| 37 |         │   │               ├──<props> handleSubmit:@-> handleSubmit                        |            |                                                                       |
+| 38 |         │   │               └──<event> onClick:handleSubmit                                 |            |                                                                       |
+| 39 |         │   └── [Col] {Table Column}                                                        |            | 'antd'                                                                |
+| 40 |         │       └── TableCrudExample                                                        | 27         | './src/components/TableCrudExample.tsx'                               |
+| 41 |         │           ├──<props> records:@ -> records                                         |            |                                                                       |
+| 42 |         │           ├──<props> handleEdit: @-> handleEdit                                   |            |                                                                       |
+| 43 |         │           ├──<props> handleDelete: @-> handleDelete                               |            |                                                                       |
+| 44 |         │           └── Card {Table Card Container}                                         | 25         | './src/components/Card.tsx'                                           |
+| 45 |         │               └── Table {CRUD Data Table}                                         | 69         | './src/components/Table.tsx'                                          |
+| 46 |         │                   ├──<props> data: @ -> records                                   |            |                                                                       |
+| 47 |         │                   ├── [th] {Name Column}                                          |            | 'native HTML element'                                                 |
+| 48 |         │                   ├── [th] {Category Column}                                      |            | 'native HTML element'                                                 |
+| 49 |         │                   ├── [th] {Description Column}                                   |            | 'native HTML element'                                                 |
+| 50 |         │                   ├── [th] {Created At Column}                                    |            | 'native HTML element'                                                 |
+| 51 |         │                   └── [th] {Action Column}                                        |            | 'native HTML element'                                                 |
+| 52 |         │                            ├── [AntButton] {Edit Button}                          |            | 'antd'                                                                |
+| 53 |         │                            │    ├──<props> handleEdit:@-> handleEdit              |            |                                                                       |
+| 54 |         │                            │    └──<event> onClick:handleEdit                     |            |                                                                       |
+| 55 |         │                            └── [AntButton] {Delete Button}                        |            | 'antd'                                                                |
+| 56 |         │                                 ├──<props> handleDelete:@-> handleDelete          |            |                                                                       |
+| 57 |         │                                 └──<event> onClick:handleDelete                   |            |                                                                       |
+| 58 |         └── useCrudExample                                                                  | 129        | './src/hooks/useCrudExample.tsx'                                      |
+| 59 |             ├──<data-storage> formData                                                      |            |                                                                       |
+| 60 |             ├──<data-storage> records                                                       |            |                                                                       |
+| 61 |             ├──<setter> formData:handleInputChange                                          |            |                                                                       |
+| 62 |             ├──<setter> formData:handleSelectChange                                         |            |                                                                       |
+| 63 |             ├──<setter> records:handleSubmit                                                |            |                                                                       |
+| 64 |             ├──<setter> records:handleEdit                                                  |            |                                                                       |
+| 65 |             ├──<setter> records:handleDelete                                                |            |                                                                       |
+| 66 |             └──<setter> editingRecord:handleCancelEdit                                      |            |                                                                       |
 |    |                                                                                             |            |                                                                       |
 |----|---------------------------------------------------------------------------------------------|------------|-----------------------------------------------------------------------|
 |    |                                                                      TOTAL CODE LINES       | 541        |                                                                       |

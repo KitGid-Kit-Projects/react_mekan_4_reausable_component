@@ -1,8 +1,8 @@
 import React, { useState } from 'react'; // - React core library for component creation
 import { Row, Col, message } from 'antd'; // - Ant Design grid components for responsive layout
-import useCrudExample from '@/hooks/useCrudExample.tsx'; // - Custom hook containing all CRUD logic and state management
-import CreateUpdateCrudExample from '@/components/CreateUpdateCrudExample.tsx'; // - Form component for creating/editing records
-import TabelCrudExample from '@/components/TableCrudExample.tsx'; // - Table component for displaying records with actions
+import useCrudExample from '../hooks/useCrudExample.tsx'; // - Custom hook containing all CRUD logic and state management
+import CreateUpdateCrudExample from '../components/CreateUpdateCrudExample.tsx'; // - Form component for creating/editing records
+import TabelCrudExample from '../components/TableCrudExample.tsx'; // - Table component for displaying records with actions
 
 /**
  * CRUD Example Component
