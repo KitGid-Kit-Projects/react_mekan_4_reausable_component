@@ -1,18 +1,6 @@
-import React from 'react';
-import { Select } from 'antd';
-import { BaseComponentProps, SelectOption } from '../types/common';
+import React from 'react'; // - React core library for component creation
+import { Select } from 'antd'; // - Ant Design Select component for dropdown functionality
 
-// Interface defining all props for the SelectBox component
-interface SelectBoxProps extends BaseComponentProps {
-  label: string;         // Text label displayed above the select box
-  options: SelectOption[]; // Array of selectable options (must have label/value)
-  value: string;         // Currently selected value (controlled component)
-  onChange: (value: string) => void; // Callback when selection changes
-  placeholder?: string;  // Placeholder text when no option is selected
-  required?: boolean;    // Whether to show required field indicator
-  disabled?: boolean;    // Whether the select is interactive
-  allowClear?: boolean;  // Whether to show clear selection button
-}
 
 /**
  * Enhanced Select Dropdown Component
@@ -25,7 +13,7 @@ interface SelectBoxProps extends BaseComponentProps {
  * 
  * @param props - Configuration options for the select box
  */
-const SelectBox: React.FC<SelectBoxProps> = ({
+const SelectBox: React.FC<any> = ({
   label,          // The text label shown above the select
   options,        // Array of {label, value} objects for dropdown
   value,          // Currently selected value (controlled)
@@ -36,55 +24,55 @@ const SelectBox: React.FC<SelectBoxProps> = ({
   allowClear = true, // Default to showing clear button
   className,      // Optional CSS class for the container
   style,          // Optional inline styles for the container
-}) => {
+}) => { // - Functional component with destructured props and default values for optional parameters
   return (
     // Container div for the select component
-    <div className={className} style={style}>
+    <div className={className} style={style}> {/* Wrapper div that accepts custom styling and CSS classes from parent */}
       {/* Label with optional required indicator */}
       <label style={{ 
         display: 'block', 
         marginBottom: 8, 
         fontWeight: 500 
-      }}>
-        {label}
+      }}>  
+        {label} {/* Display the label text passed from parent component */}
         {/* Red asterisk for required fields */}
         {required && (
           <span style={{ color: '#ff4d4f', marginLeft: 4 }}>*</span>
-        )}
+        )} {/* Conditionally render red asterisk indicator for required fields */}
       </label>
       
       {/* Ant Design Select component with all configured props */}
       <Select
         // Current selected value (undefined clears the selection)
-        value={value || undefined}
+        value={value || undefined} // - Controlled component value from parent state, undefined clears selection
         
         // Handler called when selection changes
         // Receives the new value string
-        onChange={onChange}
+        onChange={onChange} // - Callback function called when user selects option, passes selected value to parent
         
         // Placeholder text when nothing is selected
-        placeholder={placeholder}
+        placeholder={placeholder} // - Hint text displayed when no option is selected to guide user
         
         // Disables interaction when true
-        disabled={disabled}
+        disabled={disabled} // - Controls whether user can interact with dropdown (useful for read-only states)
         
         // Shows X button to clear selection when true
-        allowClear={allowClear}
+        allowClear={allowClear} // - Enables clear button (X) that allows user to deselect current option
         
         // Ensures select fills its container
-        style={{ width: '100%' }}
+        style={{ width: '100%' }} // - Makes select component fill full width of container for responsive design
         
         // The selectable options
         // Each option must have label (display text) and value
-        options={options}
+        options={options} // - Array of option objects with {label, value} structure for dropdown items
         
         // Additional Ant Design Select props could be added here:
         // showSearch - enables search filtering
         // mode - for multiple selection
         // etc.
-      />
+      />  
     </div>
   );
 };
 
-export default SelectBox;
+export default SelectBox; // - Export component as default for use in forms and other parent components
