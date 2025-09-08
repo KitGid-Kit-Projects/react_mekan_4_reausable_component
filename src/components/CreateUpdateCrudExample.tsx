@@ -15,6 +15,7 @@ export default function CreateUpdateCrudExample({
   isSubmitting, // - Boolean loading state to show submission progress
   editingRecord ,// - Current record being edited (null for create mode)
   countryOptions,
+  handleSelectCountryChange
 }:any) { // - Form component that handles both create and update operations based on editingRecord state
   return (
     <Card
@@ -38,22 +39,45 @@ export default function CreateUpdateCrudExample({
     } // - Footer with conditional Cancel button and dynamic Submit button
   >
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>  
-      <Input
-        label="Name" // - Field label for accessibility and user guidance
-        placeholder="Enter name" // - Hint text to guide user input
-        value={formData.name} // - Controlled input value from form state
-        handleInputChange={handleInputChange('name')} // - Handler for name field changes using curried function
-        required // - Mark field as required with red asterisk indicator
-      />  
+        <Input
+          label="Name"
+          placeholder="Enter name"
+          value={formData.name}
+          handleInputChange={handleInputChange('name')}
+          required
+        />
+        <Input
+          label="Surname"
+          placeholder="Enter surname"
+          value={formData.surname}
+          handleInputChange={handleInputChange('surname')}
+          required
+        />
+        <Input
+          label="Email"
+          placeholder="Enter email"
+          value={formData.email}
+          handleInputChange={handleInputChange('email')}
+          required
+        />
 
-      <SelectBox
-        label="Category" // - Field label for dropdown selection
-        options={categoryOptions} // - Array of selectable category options
-        value={formData.category} // - Currently selected category value
-        handleSelectChange={handleSelectChange} // - Handler for category selection changes
-        placeholder="Select a category" // - Hint text when no option is selected
-        required // - Mark field as required with red asterisk indicator
-      />  
+        <SelectBox
+          label="Category"
+          options={categoryOptions}
+          value={formData.category}
+          handleSelectChange={handleSelectChange}
+          placeholder="Select a category"
+          required
+        />
+                <SelectBox
+          label="Country"
+          options={countryOptions}
+          value={formData.country}
+          handleSelectChange={handleSelectCountryChange}
+          placeholder="Select a Country"
+          required
+        />
+  
 
       <TextArea
         label="Description" // - Field label for multi-line text input

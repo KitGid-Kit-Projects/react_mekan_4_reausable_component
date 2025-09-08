@@ -37,6 +37,10 @@ export default function useCrudExample() {
     setFormData(prev => ({ ...prev, category: value })); // - Updates only the category field in formData state while preserving other fields (name, description)
   }; // - This function is called by SelectBox component when user selects a different category option
 
+    const handleSelectCountryChange = (value: string) => {
+    setFormData(prev => ({ ...prev, country: value })); // - Updates only the category field in formData state while preserving other fields (name, description)
+  }; // - This function is called by SelectBox component when user selects a different category option
+
   /**
    * Handles form submission for both create and update operations
    */
@@ -96,7 +100,8 @@ export default function useCrudExample() {
     setFormData({
       name: record.name,
       category: record.category,
-      description: record.description,surname: record.surname, email: record.email,country:record.country
+      description: record.description,surname: record.surname, email: record.email,country:record.country,
+
     }); // - Populate form fields with values from selected record for editing
     setEditingRecord(record); // - Set current record as being edited, changes form to update mode
     message.info('Record loaded for editing'); // - Show info toast to confirm edit mode activation
@@ -194,6 +199,6 @@ export default function useCrudExample() {
     records, // - Array of all CRUD records for display in table
     editingRecord, setEditingRecord, // - Current editing state and setter
     isSubmitting, setIsSubmitting // - Loading state and setter for form submission
-    ,countryOptions
+    ,countryOptions,handleSelectCountryChange
   } // - Return object exposing all necessary state and functions for CRUD operations
 }
