@@ -13,11 +13,12 @@ export default function TableCrudExample({
   return (
     <Card title="Records" style={{ height: 'fit-content' }}>
     <Table
-    columns={columns} /* columns: defines table columns */
-    data={records} /* data: rows to display */
-    pagination={records.length > 10} /* enable pagination when more than 10 rows */
-    size="middle" /* table size */
-    
+      columns={columns} // - Pass column definitions for table structure and behavior
+        data={records} // - Pass records array as data source for table rows
+        handleEdit={handleEdit} // - Pass edit handler to Table for Edit button functionality
+        handleDelete={handleDelete} // - Pass delete handler to Table for Delete button functionality
+        pagination={records.length > 10} // - Enable pagination only when more than 10 records for better UX
+        size="middle" 
     />
     {/* Empty state message */}
     {records.length === 0 && (
