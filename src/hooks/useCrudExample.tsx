@@ -7,7 +7,7 @@ export default function useCrudExample() {
 
   // Hook: manages form and table state plus CRUD handlers for the page
 
-  const [formData, setFormData] = useState({ name: '', category: '', description: '' }); /* formData: values for the form; setFormData: update function */
+  const [formData, setFormData] = useState({ name: '', category: '', description: '', surname: '', email: '',country:'' }); /* formData: values for the form; setFormData: update function */
 
   // In-memory data and UI state
   const [records, setRecords] = useState<any[]>([]); /* records: saved items (in-memory) */
@@ -33,6 +33,10 @@ export default function useCrudExample() {
   const handleSelectChange = (value: string) => /* set category value in formData */ {
     setFormData(prev => ({ ...prev, category: value })); /* set category field */
   };
+    const handleSelectCountryChange = (value: string) => /* set category value in formData */ {
+    setFormData(prev => ({ ...prev, country: value })); /* set category field */
+  };
+
 
   /**
    * Handles form submission for both create and update operations
@@ -55,13 +59,13 @@ export default function useCrudExample() {
       await new Promise(resolve => setTimeout(resolve, 500));
 
       // Create new record
-  const newRecord: any = { id: Date.now().toString(), ...formData, createdAt: new Date() }; /* new record */
-  setRecords(prev => [...prev, newRecord]); /* add record to list */
+      const newRecord: any = { id: Date.now().toString(), ...formData, createdAt: new Date() }; /* new record */
+      setRecords(prev => [...prev, newRecord]); /* add record to list */
       message.success('Record created successfully!');
 
 
       // Reset form
-      setFormData({ name: '', category: '', description: '' });
+      setFormData({ name: '', category: '', description: '', surname: '', email: '',country:'' });
     } catch (error) {
       message.error('An error occurred. Please try again.');
     } finally {
@@ -90,6 +94,14 @@ export default function useCrudExample() {
     { label: 'Entertainment', value: 'entertainment' },
   ]; /* categoryOptions: select options */
 
+  const countryOptions: any[] = [
+    { label: 'German', value: 'german' },
+    { label: 'USA', value: 'usa' },
+    { label: 'England', value: 'en' },
+    { label: 'France', value: 'france' },
+    { label: 'Turkey', value: 'turkey' },
+  ];
+
   // Table column configuration
   const columns: ColumnsType<any> = [
     {
@@ -98,6 +110,25 @@ export default function useCrudExample() {
       key: 'name',
       sorter: (a, b) => a.name.localeCompare(b.name), // alphabetical
     }, /* Column: Name - displays record name; sortable */
+    {
+      title: 'Surname',
+      dataIndex: 'surname',
+      key: 'surname',
+      sorter: (a, b) => a.name.localeCompare(b.surname), // alphabetical  
+    },
+    {
+      title: 'Email',
+      dataIndex: 'email',
+      key: 'email',
+      sorter: (a, b) => a.name.localeCompare(b.email), // alphabetical  
+    },
+    {
+      title: 'Country',
+      dataIndex: 'country',
+      key: 'country',
+      sorter: (a, b) => a.name.localeCompare(b.country), // alphabetical  
+    }
+    ,
     {
       title: 'Category',
       dataIndex: 'category',
@@ -128,6 +159,8 @@ export default function useCrudExample() {
     columns /* table columns */,
     records /* saved records */,
     editingRecord /* currently edited record */, setEditingRecord /* set editing record */,
-    isSubmitting /* submission flag */, setIsSubmitting /* set submission flag */
+    isSubmitting /* submission flag */, setIsSubmitting /* set submission flag */,
+    countryOptions,
+    handleSelectCountryChange
   }
 }

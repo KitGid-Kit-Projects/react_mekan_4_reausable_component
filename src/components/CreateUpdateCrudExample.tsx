@@ -12,52 +12,76 @@ export default function CreateUpdateCrudExample({
   handleSelectChange,
   handleSubmit,
   isSubmitting,
-  editingRecord
+  editingRecord,
+  countryOptions,
+  handleSelectCountryChange
 }) {
   return (
     <Card
-    title={editingRecord ? 'Edit Record' : 'Create New Record'}
-    footer={
-      <div style={{ display: 'flex', gap: '8px', justifyContent: 'flex-end' }}>
-        
-        <Button
-          text={editingRecord ? 'Update' : 'Create'}
-          handleSubmit={handleSubmit}
-          variant="primary"
-          loading={isSubmitting}
+      title={editingRecord ? 'Edit Record' : 'Create New Record'}
+      footer={
+        <div style={{ display: 'flex', gap: '8px', justifyContent: 'flex-end' }}>
+
+          <Button
+            text={editingRecord ? 'Update' : 'Create'}
+            handleSubmit={handleSubmit}
+            variant="primary"
+            loading={isSubmitting}
+          />
+        </div>
+      }
+    >
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+        <Input
+          label="Name"
+          placeholder="Enter name"
+          value={formData.name}
+          handleInputChange={handleInputChange('name')}
+          required
+        />
+        <Input
+          label="Surname"
+          placeholder="Enter surname"
+          value={formData.surname}
+          handleInputChange={handleInputChange('surname')}
+          required
+        />
+        <Input
+          label="Email"
+          placeholder="Enter email"
+          value={formData.email}
+          handleInputChange={handleInputChange('email')}
+          required
+        />
+
+        <SelectBox
+          label="Category"
+          options={categoryOptions}
+          value={formData.category}
+          handleSelectChange={handleSelectChange}
+          placeholder="Select a category"
+          required
+        />
+                <SelectBox
+          label="Country"
+          options={countryOptions}
+          value={formData.country}
+          handleSelectChange={handleSelectCountryChange}
+          placeholder="Select a Country"
+          required
+        />
+
+        <TextArea
+          label="Description"
+          placeholder="Enter description"
+          value={formData.description}
+          handleInputChange={handleInputChange('description')}
+          rows={4}
+          maxLength={500}
+          showCount
         />
       </div>
-    }
-  >
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-      <Input
-        label="Name"
-        placeholder="Enter name"
-        value={formData.name}
-        handleInputChange={handleInputChange('name')}
-        required
-      />
-
-      <SelectBox
-        label="Category"
-        options={categoryOptions}
-        value={formData.category}
-        handleSelectChange={handleSelectChange}
-        placeholder="Select a category"
-        required
-      />
-
-      <TextArea
-        label="Description"
-        placeholder="Enter description"
-        value={formData.description}
-        handleInputChange={handleInputChange('description')}
-        rows={4}
-        maxLength={500}
-        showCount
-      />
-    </div>
-  </Card>
+    </Card>
   )
 }
 
