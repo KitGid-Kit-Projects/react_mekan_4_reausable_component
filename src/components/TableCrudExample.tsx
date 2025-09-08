@@ -7,7 +7,8 @@ import Table from './Table.tsx'
 export default function TableCrudExample({
   columns, /* column definitions passed from hook/page */
   records, /* array of data rows */
-    
+            handleEdit,
+    handleDelete
 }) {
   return (
     <Card title="Records" style={{ height: 'fit-content' }}>
@@ -16,6 +17,7 @@ export default function TableCrudExample({
     data={records} /* data: rows to display */
     pagination={records.length > 10} /* enable pagination when more than 10 rows */
     size="middle" /* table size */
+    
     />
     {/* Empty state message */}
     {records.length === 0 && (

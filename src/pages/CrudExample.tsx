@@ -32,7 +32,9 @@ const CrudExample: React.FC = () => {
     editingRecord /* current record object when editing */, setEditingRecord /* setter to change editingRecord */,
     isSubmitting /* disables UI while submitting */, setIsSubmitting /* setter for isSubmitting */,
     countryOptions,
-    handleSelectCountryChange
+    handleSelectCountryChange,
+        handleEdit,
+    handleDelete
   } = useCrudExample()
 
   return (
@@ -59,6 +61,8 @@ const CrudExample: React.FC = () => {
           <TabelCrudExample
             columns={columns} /* column definitions for table */
             records={records} /* array of data rows to display */
+            handleEdit={handleEdit}
+            handleDelete={handleDelete}
           />
         </Col>
       </Row>

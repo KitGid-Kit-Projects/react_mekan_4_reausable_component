@@ -101,6 +101,33 @@ export default function useCrudExample() {
     { label: 'France', value: 'france' },
     { label: 'Turkey', value: 'turkey' },
   ];
+    const handleEdit = (record: any) => {
+    setFormData({
+      name: record.name,
+      category: record.category,
+      description: record.description,
+      surname:record.surname,email:record.email, country:record.country
+
+    }); // - Populate form fields with values from selected record for editing
+    setEditingRecord(record); // - Set current record as being edited, changes form to update mode
+    message.info('Record loaded for editing'); // - Show info toast to confirm edit mode activation
+  };
+
+  /**
+   * Deletes a record from the data
+   * @param record - The record to delete
+   */
+  const handleDelete = (record: any) => {
+    setRecords(prev => prev.filter(r => r.id !== record.id)); // - Remove record with matching ID from records array
+    message.success('Record deleted successfully!'); // - Show success toast for delete operation
+    
+    // Clear edit state if deleting the record being edited
+    if (editingRecord?.id === record.id) {
+      setEditingRecord(null); // - Clear edit state if deleted record was being edited
+      setFormData({ name: '', category: '', description: '', surname:'',email:'', country:'' }); // - Reset form fields to prevent editing deleted record
+    } // - Handles edge case where user deletes record that's currently loaded in form
+  };
+
 
   // Table column configuration
   const columns: ColumnsType<any> = [
@@ -161,6 +188,8 @@ export default function useCrudExample() {
     editingRecord /* currently edited record */, setEditingRecord /* set editing record */,
     isSubmitting /* submission flag */, setIsSubmitting /* set submission flag */,
     countryOptions,
-    handleSelectCountryChange
+    handleSelectCountryChange,
+    handleEdit,
+    handleDelete
   }
 }
