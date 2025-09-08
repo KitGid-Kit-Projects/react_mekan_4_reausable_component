@@ -33,7 +33,8 @@ const {
   columns, // - Table column configuration with sorting and filtering setup
   records, // - Array of all CRUD records for table display
   editingRecord, setEditingRecord, // - State for currently selected record being edited
-  isSubmitting, setIsSubmitting // - Loading state for form submission operations
+  isSubmitting, setIsSubmitting, // - Loading state for form submission operations
+  countryOptions
 }=useCrudExample() // - Extract all CRUD functionality from custom hook
 
   return (
@@ -50,7 +51,8 @@ const {
            handleSubmit={handleSubmit} // - Pass submit handler for form processing
            handleCancelEdit={handleCancelEdit} // - Pass cancel handler to exit edit mode
            isSubmitting={isSubmitting} // - Pass loading state for button and form disabling
-           editingRecord={editingRecord} // - Pass current editing record to determine form mode (create vs edit)
+           editingRecord={editingRecord} 
+           countryOptions={countryOptions}// - Pass current editing record to determine form mode (create vs edit)
           /> {/* - Form component handles all user input and validation display */}
         </Col>
 

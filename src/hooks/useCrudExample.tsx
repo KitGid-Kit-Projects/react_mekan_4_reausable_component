@@ -3,11 +3,7 @@ import { Row, Col, message } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 
 export default function useCrudExample() {
-  const [formData, setFormData] = useState({
-    name: '',
-    category: '',
-    description: '',
-  }); // - Form state object that holds current input values for create/edit operations
+  const [formData, setFormData] = useState({ name: '', category: '', description: '', surname: '', email: '',country:'' }); /* formData: values for the form; setFormData: update function */
 
   // Data storage (simulating a database)
   const [records, setRecords] = useState<any[]>([]); // - Array holding all CRUD records, simulates database storage in memory
@@ -84,7 +80,7 @@ export default function useCrudExample() {
       }
 
       // Reset form
-      setFormData({ name: '', category: '', description: '' }); // - Clear form fields after successful submission
+      setFormData({ name: '', category: '', description: '', surname: '', email: '',country:''}); // - Clear form fields after successful submission
     } catch (error) {
       message.error('An error occurred. Please try again.'); // - Show generic error message for any failures
     } finally {
@@ -100,7 +96,7 @@ export default function useCrudExample() {
     setFormData({
       name: record.name,
       category: record.category,
-      description: record.description,
+      description: record.description,surname: record.surname, email: record.email,country:record.country
     }); // - Populate form fields with values from selected record for editing
     setEditingRecord(record); // - Set current record as being edited, changes form to update mode
     message.info('Record loaded for editing'); // - Show info toast to confirm edit mode activation
@@ -117,7 +113,7 @@ export default function useCrudExample() {
     // Clear edit state if deleting the record being edited
     if (editingRecord?.id === record.id) {
       setEditingRecord(null); // - Clear edit state if deleted record was being edited
-      setFormData({ name: '', category: '', description: '' }); // - Reset form fields to prevent editing deleted record
+      setFormData({ name: '', category: '', description: '', surname: '', email: '',country:''}); // - Reset form fields to prevent editing deleted record
     } // - Handles edge case where user deletes record that's currently loaded in form
   };
 
@@ -126,9 +122,17 @@ export default function useCrudExample() {
    */
   const handleCancelEdit = () => {
     setEditingRecord(null); // - Clear currently editing record, returns form to create mode
-    setFormData({ name: '', category: '', description: '' }); // - Reset all form fields to empty values
+    setFormData({ name: '', category: '', description: '', surname: '', email: '',country:'' }); // - Reset all form fields to empty values
     message.info('Edit cancelled'); // - Show info toast to confirm edit operation was cancelled
   };
+
+    const countryOptions: any[] = [
+    { label: 'German', value: 'german' },
+    { label: 'USA', value: 'usa' },
+    { label: 'England', value: 'en' },
+    { label: 'France', value: 'france' },
+    { label: 'Turkey', value: 'turkey' },
+  ];
 
   // Table column configuration
   const columns: ColumnsType<any> = [
@@ -137,6 +141,24 @@ export default function useCrudExample() {
       dataIndex: 'name',
       key: 'name',
       sorter: (a, b) => a.name.localeCompare(b.name), // - Alphabetical sorting for name column using locale-aware comparison
+    },
+       {
+      title: 'Surname',
+      dataIndex: 'surname',
+      key: 'surname',
+      sorter: (a, b) => a.name.localeCompare(b.surname), // alphabetical  
+    },
+    {
+      title: 'Email',
+      dataIndex: 'email',
+      key: 'email',
+      sorter: (a, b) => a.name.localeCompare(b.email), // alphabetical  
+    },
+    {
+      title: 'Country',
+      dataIndex: 'country',
+      key: 'country',
+      sorter: (a, b) => a.name.localeCompare(b.country), // alphabetical  
     },
     {
       title: 'Category',
@@ -172,5 +194,6 @@ export default function useCrudExample() {
     records, // - Array of all CRUD records for display in table
     editingRecord, setEditingRecord, // - Current editing state and setter
     isSubmitting, setIsSubmitting // - Loading state and setter for form submission
+    ,countryOptions
   } // - Return object exposing all necessary state and functions for CRUD operations
 }
